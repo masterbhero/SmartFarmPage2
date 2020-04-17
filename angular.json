@@ -122,5 +122,8 @@
       }
     }
   },
-  "defaultProject": "SmartFarm2"
+  "defaultProject": "SmartFarm2",
+  "cli": {
+    "analytics": false
+  }
 }
