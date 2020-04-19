@@ -1,10 +1,7 @@
-<p>
-  login works!
-</p>
-
 <div class="main-div">
   <mat-card >
     <div class="container">
+
       <div class="row">
         <div class="col-12">
           <form class="example-form">
@@ -15,6 +12,7 @@
           </form>
         </div>
       </div>
+
       <div class="row">
         <div class="col-12">
           <form class="example-form">
@@ -25,7 +23,16 @@
           </form>
         </div>
       </div>
-      
+
+      <div class="row">
+        <div class="col-6">
+          <button mat-raised-button color="primary" class="btn-login" (click)=SavelocalStorage()>Login</button>
+        </div>
+        <div class="col-6">
+          <button mat-raised-button color="primary" class="btn-register" (click)=GetlocalStorage()>Register</button>
+        </div>
+      </div>
+
     </div>
   </mat-card>
 </div>
