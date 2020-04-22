@@ -34,17 +34,23 @@ export class LoginComponent implements OnInit {
       "email": username.value,
       "password": password.value
     }
+    //https://smartflowfarm.xyz/api3000/user/login
+    //http://localhost:3000/user/login
+    this.http.post('https://smartflowfarm.xyz/api3000/user/login', this.postbody).subscribe(result => {
 
-    this.http.post('http://localhost:3000/user/login', this.postbody).subscribe(result => {
       const status = JSON.stringify(result['status']);
-      if(status == 'success'){
+
+      if(status == "\"success\""){
+
         const str = JSON.stringify(result['token']);
+        this.data = str;
+
         localStorage.setItem('token',str);
       }
-      else if(status == 'wrong password'){
+      else if(status == "\"wrong password\""){
 
       }
-      else if(status == 'User does not exist'){
+      else if(status == "\"User does not exist\""){
 
       }
       //this.obj = JSON.parse(str);
