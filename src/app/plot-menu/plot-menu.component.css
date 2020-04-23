@@ -7,19 +7,26 @@
     background: #352a7a; 
   }
 
-  .circle{
-    height: 48px;
-    width: 48px;
-    border-radius: 50%;
-    /* <img src="assets\img\1234.png"> */
-    /* background-image: url('/assets/img/1234.png'); */
-    border: none;
+  .btn-Delete{
+    background: #ff0000;
+  }
+  
+  .btn-Delete:hover { 
+    background: #bf0000; 
+  }
+
+  .btn-login{
+    background: #26fa09;
 }
-.circle1{
-    height: 48px;
-    width: 48px;
+
+.btn-login:hover { 
+    background: #26aa09; 
+}
+  
+  .circle{
+    height: 50px;
+    width: 0.5px;
     border-radius: 50%;
-    /* <img src="assets\img\1234.png"> */
-    /* background-image: url('/assets/img/12345.png'); */
+    background-image: url('/assets/img/1234.png');
     border: none;
 }

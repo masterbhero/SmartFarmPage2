@@ -17,7 +17,9 @@ import { AddeviceComponent } from './addevice/addevice.component';
 import { AdminComponent } from './admin/admin.component';
 import { McDataComponent } from './mc-data/mc-data.component';
 import { RegisterComponent } from './register/register.component';
-
+import { MatDialogModule } from '@angular/material/dialog';
+import { FertconfigComponent } from './fertconfig/fertconfig.component';
+import { WateringComponent } from './watering/watering.component';
 
 
 const Routes: Routes = [
@@ -31,6 +33,8 @@ const Routes: Routes = [
   { path: 'admin',  component: AdminComponent },
   { path: 'mcdata',  component: McDataComponent },
   { path: 'register',  component: RegisterComponent },
+  { path: 'fertconfig',  component: FertconfigComponent },
+  { path: 'watering',  component: WateringComponent },
   
 ];
 
@@ -46,7 +50,9 @@ const Routes: Routes = [
     AddeviceComponent,
     AdminComponent,
     McDataComponent,
-    RegisterComponent
+    RegisterComponent,
+    FertconfigComponent,
+    WateringComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +60,8 @@ const Routes: Routes = [
     BrowserAnimationsModule,
     MatInputModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    MatDialogModule
    
 
   ],

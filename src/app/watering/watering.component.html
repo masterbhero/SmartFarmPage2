@@ -1,0 +1,44 @@
+<!-- Page Content -->
+<div class="container">
+    <div class="card border-0 shadow my-5" style="background-color: #ffffff;">
+        <div class="card-body p-5">
+
+            <div style="text-align:center">
+                <div class="text-dark" style="font-size: 30px;">การรดน้ำ</div>
+            </div>
+            <br><br><br>
+
+            <div style="text-align:center">
+                <div class="card-body">
+
+                    <input type="date" id="myDate" value="2014-02-09">
+                    <p id="demo"></p>
+                    <script>
+                        function myFunction() {
+                            var x = document.getElementById("myDate").value;
+                            document.getElementById("demo").innerHTML = x;
+                        }
+                    </script>
+                    <br><br><br>
+                    
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-md-3">
+                            <div class="form-group ">
+                                <button mat-raised-button color="primary" class="btn-Menu">ย้อนกลับ</button>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group ">
+                                <button mat-raised-button color="primary" class="btn-login">ตกลง</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- <div style="height: 700px"></div>
+            <p class="lead mb-0">You've reached the end!</p> -->
+
+        </div>
+    </div>
+</div>
