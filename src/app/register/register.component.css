@@ -1,0 +1,15 @@
+.btn-login{
+    background: #26fa09;
+}
+
+.btn-login:hover { 
+    background: #26aa09; 
+}
+
+.btn-Delete{
+    background: #ff0000;
+  }
+  
+  .btn-Delete:hover { 
+    background: #bf0000; 
+  }

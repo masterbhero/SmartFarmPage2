@@ -16,6 +16,7 @@ import { ManagedeviceComponent } from './managedevice/managedevice.component';
 import { AddeviceComponent } from './addevice/addevice.component';
 import { AdminComponent } from './admin/admin.component';
 import { McDataComponent } from './mc-data/mc-data.component';
+import { RegisterComponent } from './register/register.component';
 
 
 
@@ -29,6 +30,7 @@ const Routes: Routes = [
   { path: 'plotmenu',  component: PlotMenuComponent },
   { path: 'admin',  component: AdminComponent },
   { path: 'mcdata',  component: McDataComponent },
+  { path: 'register',  component: RegisterComponent },
   
 ];
 
@@ -43,7 +45,8 @@ const Routes: Routes = [
     ManagedeviceComponent,
     AddeviceComponent,
     AdminComponent,
-    McDataComponent
+    McDataComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
