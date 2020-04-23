@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-login',
@@ -11,6 +12,7 @@ export class LoginComponent implements OnInit {
   data:any;
   postbody: any;
   obj: any;
+  Header: any;
 
   constructor(private http: HttpClient) { }
 
@@ -58,3 +60,10 @@ export class LoginComponent implements OnInit {
 
   }
 }
+
+// , {
+//   headers: new HttpHeaders({
+//     'Authorization': 'my-auth-token',
+//     'x-header': 'x-value'
+//   })
+// } 
