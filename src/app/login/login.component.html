@@ -29,7 +29,13 @@
           <button mat-raised-button color="primary" class="btn-login" (click)=logIn(username,password)>Login</button>
         </div>
         <div class="col-6">
-          <button mat-raised-button color="primary" class="btn-register" (click)=GetlocalStorage()>Register</button>
+          <button mat-raised-button color="primary" class="btn-register" routerLink="/register">Register</button>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-6">
+          <p>{{data}}</p>
         </div>
       </div>
 

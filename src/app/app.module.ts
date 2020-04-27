@@ -22,7 +22,7 @@ import { RegisterComponent } from './register/register.component';
 
 
 const Routes: Routes = [
-  // { path: '',  redirectTo:'/login', pathMatch:'full' },
+  { path: '',  redirectTo:'/login', pathMatch:'full' },
   { path: 'login',  component: LoginComponent },
   { path: 'plot',  component: PlotComponent },
   { path: 'edit',  component: EditComponent },
