@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -23,7 +24,7 @@ import { WateringComponent } from './watering/watering.component';
 
 
 const Routes: Routes = [
-  // { path: '',  redirectTo:'/login', pathMatch:'full' },
+  { path: '',  redirectTo:'/login', pathMatch:'full' },
   { path: 'login',  component: LoginComponent },
   { path: 'plot',  component: PlotComponent },
   { path: 'edit',  component: EditComponent },
@@ -61,8 +62,8 @@ const Routes: Routes = [
     MatInputModule,
     MatCardModule,
     MatButtonModule,
+    HttpClientModule,
     MatDialogModule
-   
 
   ],
   providers: [],

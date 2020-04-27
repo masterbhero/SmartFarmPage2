@@ -7,7 +7,7 @@
           <form class="example-form">
             <mat-form-field class="example-full-width">
               <mat-label>Username</mat-label>
-              <input matInput placeholder="Username" value="">
+              <input matInput placeholder="Username" value="" #username>
             </mat-form-field>
           </form>
         </div>
@@ -18,7 +18,7 @@
           <form class="example-form">
             <mat-form-field class="example-full-width">
               <mat-label>Password</mat-label>
-              <input matInput placeholder="Password" value="">
+              <input matInput placeholder="Password" value="" #password>
             </mat-form-field>
           </form>
         </div>
@@ -26,10 +26,16 @@
 
       <div class="row">
         <div class="col-6">
-          <button mat-raised-button color="primary" class="btn-login" (click)=SavelocalStorage()>Login</button>
+          <button mat-raised-button color="primary" class="btn-login" (click)=logIn(username,password)>Login</button>
         </div>
         <div class="col-6">
-          <button mat-raised-button color="primary" class="btn-register" (click)=GetlocalStorage()>Register</button>
+          <button mat-raised-button color="primary" class="btn-register" routerLink="/register">Register</button>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-6">
+          <p>{{data}}</p>
         </div>
       </div>
 
