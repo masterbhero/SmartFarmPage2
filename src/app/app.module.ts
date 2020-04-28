@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatInputModule} from '@angular/material/input';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 //page
 import { AppComponent } from './app.component';
@@ -58,7 +59,8 @@ const Routes: Routes = [
     MatInputModule,
     MatCardModule,
     MatButtonModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
 
   ],
   providers: [{
