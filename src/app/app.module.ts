@@ -3,13 +3,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule } from '@angular/common/http';
-import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
+import { HttpClientModule, HTTP_INTERCEPTORS  } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatInputModule} from '@angular/material/input';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
+
+//page
+import { AppComponent } from './app.component';
+import { LoginComponent } from './login/login.component';
 import { PlotComponent } from './plot/plot.component';
 import { EditComponent } from './edit/edit.component';
 import { PlotMenuComponent } from './plot-menu/plot-menu.component';
@@ -18,7 +20,7 @@ import { AddeviceComponent } from './addevice/addevice.component';
 import { AdminComponent } from './admin/admin.component';
 import { McDataComponent } from './mc-data/mc-data.component';
 import { RegisterComponent } from './register/register.component';
-
+import { ErrorInterceptor } from './error.interceptor';
 
 
 const Routes: Routes = [
@@ -59,7 +61,11 @@ const Routes: Routes = [
     HttpClientModule
 
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: ErrorInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
