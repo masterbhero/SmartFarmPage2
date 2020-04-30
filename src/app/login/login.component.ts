@@ -1,3 +1,4 @@
+import { HttpRequestService } from './../http-request.service';
 import { Component, OnInit } from '@angular/core';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
@@ -15,7 +16,7 @@ export class LoginComponent implements OnInit {
   obj: any;
   Header: any;
 
-  constructor(private http: HttpClient,private router: Router) { }
+  constructor(private http: HttpClient,private router: Router,private httpRequestService: HttpRequestService) { }
 
   ngOnInit() {
     if(localStorage.getItem('token') != '' && localStorage.getItem('token') != null){
@@ -24,43 +25,24 @@ export class LoginComponent implements OnInit {
   }
 
   logIn(username: HTMLInputElement, password: HTMLInputElement){
-    //this.data = "login";
     this.postbody = {
       "email": username.value,
       "password": password.value
     }
-    this.data = this.postbody['email'];    
-    //https://smartflowfarm.xyz/api3000/user/login
-    //http://localhost:3000/user/login
-    this.http.post('https://smartflowfarm.xyz/api3000/user/login', this.postbody).subscribe(result => {
 
-      const status = JSON.stringify(result['status']);
-      //this.data = status;
-      if(status == "\"success\""){
-        //this.data = "success";
-        const str = JSON.stringify(result['token']);
-        this.data = str;
+    let result = this.httpRequestService.Login(this.postbody);    
 
-        localStorage.setItem('token',str);
+    const status = JSON.stringify(result['status']);
+    if(status == "\"success\""){
+      const str = JSON.stringify(result['token']);
+      localStorage.setItem('token',str);
+      this.router.navigate(['/plot']);
+    }
+    else if(status == "\"wrong password\""){
 
-        this.router.navigate(['/plot']);
+    }
+    else if(status == "\"User does not exist\""){
 
-      }
-      else if(status == "\"wrong password\""){
-
-      }
-      else if(status == "\"User does not exist\""){
-
-      }
-      //this.obj = JSON.parse(str);
-    });
-
+    }
   }
 }
-
-// , {
-//   headers: new HttpHeaders({
-//     'Authorization': 'my-auth-token',
-//     'x-header': 'x-value'
-//   })
-// } 

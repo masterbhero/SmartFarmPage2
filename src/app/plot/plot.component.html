@@ -13,9 +13,10 @@
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <!-- <button class="btn btn-danger"> ออกจากระบบ</button> -->
-                    <a class="nav-link" href="#">ออกจากระบบ</a>
+                <li class="nav-item active">
+                    <a class="nav-link" (click)=Logout()>ออกจากระบบ
+                        <span class="sr-only">(current)</span>
+                    </a>
                 </li>
             </ul>
         </div>
@@ -29,7 +30,7 @@
             <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
                 <div class="btn-group" role="group" aria-label="First group">
                     <div class="form-group ">
-                        <label style="font-size: 25px;">นาย สมคิด รักดี</label>
+                        <label style="font-size: 25px;">{{error}}</label>
                     </div>
                 </div>
                 <div class="input-group">
