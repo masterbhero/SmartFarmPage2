@@ -5,7 +5,7 @@
             <div style="text-align:center">
                 <div style=" font-size: 30px; ">แปลงที่ 1
                     <div style="float: right;">
-                        <button mat-raised-button color="primary" class="btn-Menu">ตั้งค่าแปลง</button>
+                        <button routerLink="/plotconfig" mat-raised-button color="primary" class="btn-Menu">ตั้งค่าแปลง</button>
                         <br><br>
                     </div>
                 </div>
@@ -89,8 +89,8 @@
                             <td><button mat-raised-button color="primary" class="btn-login circle"></button></td>
                             <td>
 
-                                <button mat-raised-button color="primary" class="btn-Menu">ตั้งค่าปุ๋ย</button></td>
-                            <td> <button mat-raised-button color="primary" class="btn-Menu">ประวัติการให้น้ำ</button>
+                                <button routerLink="/fertconfig" mat-raised-button color="primary" class="btn-Menu">ตั้งค่าปุ๋ย</button></td>
+                            <td> <button routerLink="/watering" mat-raised-button color="primary" class="btn-Menu">ประวัติการให้น้ำ</button>
                             </td>
                         </tr>
                     </tbody>
@@ -120,7 +120,7 @@
 
             <div style="float: right;">
                 <div style="float: right;">
-                    <button mat-raised-button color="primary" class="btn-Menu">ย้อนกลับ</button><br>
+                    <button routerLink="/plot" mat-raised-button color="primary" class="btn-Menu">ย้อนกลับ</button><br>
                 </div>
             </div>
             <br><br>
