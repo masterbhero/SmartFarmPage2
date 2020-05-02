@@ -60,7 +60,8 @@ const Routes: Routes = [
     MatCardModule,
     MatButtonModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
 
   ],
   providers: [{

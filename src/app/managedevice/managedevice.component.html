@@ -24,20 +24,10 @@
                             <div style="text-align:center">
                                 <div class="card-body">
                                     <div class="row d-flex justify-content-center">
-                                        <ng-container><br>
+                                        <ng-container *ngFor="let displayplot of plot.name;let i = index">
                                             <div class="col-md-5">
                                                 <div class="form-group ">
-                                                    แปลงที่ 1
-                                                </div>
-                                            </div>
-                                            <div class="col-md-5">
-                                                <div class="form-group ">
-                                                    <button mat-raised-button color="primary" class="btn btn-Delete">ลบ</button>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-5">
-                                                <div class="form-group ">
-                                                    แปลงที่ 1
+                                                    {{displayplot}}
                                                 </div>
                                             </div>
                                             <div class="col-md-5">

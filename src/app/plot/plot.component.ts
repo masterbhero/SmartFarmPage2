@@ -16,14 +16,32 @@ export class PlotComponent implements OnInit {
   postbody: any;
   Header: any;
   error: any;
+  detail: any;
+  plot: any;
 
-  constructor(private http: HttpClient,private router: Router,private httpRequestService: HttpRequestService) { }
-
-  ngOnInit(): void {
-    this.httpRequestService.Verify();
+  constructor(private http: HttpClient,private router: Router,private httpRequestService: HttpRequestService) { 
+    this.plot = {
+      name:['plot1'],
+      _id:['someid']
+    }
+    this.detail = {
+      firstname:[],
+      lastname:[]
+    }
   }
 
-  Logout(){
+  ngOnInit(){
+    this.httpRequestService.Verify();
+    let Header = new HttpHeaders({'Authorization': 'Bearer '+localStorage.getItem('token')});
+    let options = { headers: Header };
+    this.http.get('http://localhost:3000/user/GetUserAndVerify/',options).subscribe(result => {
+      this.detail = result;
+    })
+    
+    
+  }
+
+  Logout(){ 
     this.httpRequestService.LogOut();
   }
 }

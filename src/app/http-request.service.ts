@@ -19,10 +19,12 @@ export class HttpRequestService {
   private login = 'http://localhost:3000/user/login';
   private verify = 'http://localhost:3000/user/verify';
   private register = 'http://localhost:3000/user/AddUser';
+  private GetUser = 'http://localhost:3000/user/GetUserAndVerify/';
 
   private login_prod = 'https://smartflowfarm.xyz/api3000/user/login';
   private verify_prod = 'https://smartflowfarm.xyz/api3000/user/verify';
   private register_pord = 'https://smartflowfarm.xyz/api3000/user/AddUser';
+  private GetUser_pord = 'https://smartflowfarm.xyz/api3000/user/';
 
   result: any;
 
@@ -54,5 +56,16 @@ export class HttpRequestService {
       this.result = result;    
     });
     return this.result;
+  }
+
+  async GetUserData(){
+    let Header = new HttpHeaders({'Authorization': 'Bearer '+localStorage.getItem('token')});
+    let options = { headers: Header };
+    this.http.get(this.GetUser,options).subscribe(result => {
+      console.log("result is : "+result);
+      this.result = result;
+      console.log("this.result is : "+this.result);
+      return this.result;
+    })
   }
 }

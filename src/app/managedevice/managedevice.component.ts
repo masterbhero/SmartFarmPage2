@@ -7,9 +7,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ManagedeviceComponent implements OnInit {
 
-  constructor() { }
+  url: any;
+  user_id: any;
+  plot: any;
+
+  constructor() { 
+    this.url = window.location.href;
+    this.plot = {
+      name:['plot1'],
+      _id:['someid']
+    }
+  }
 
   ngOnInit(): void {
+    this.url = this.url.split("=", 2); 
+    this.user_id = this.url[1];
   }
 
 }

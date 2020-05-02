@@ -30,7 +30,7 @@
             <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
                 <div class="btn-group" role="group" aria-label="First group">
                     <div class="form-group ">
-                        <label style="font-size: 25px;">{{error}}</label>
+                        <label style="font-size: 25px;">{{detail.firstname}} {{detail.lastname}}</label>
                     </div>
                 </div>
                 <div class="input-group">
@@ -38,26 +38,17 @@
                         <button mat-raised-button color="primary" class="btn-Edit">แก้ไข</button>
                     </div>
                     <div class="btn-group" role="group" aria-label="Third group">
-                        <button mat-raised-button color="primary" class="btn-Menu">จัดการอุปกรณ์</button>
+                        <button mat-raised-button color="primary" class="btn-Menu" [routerLink]="['/managedevice',{id:detail._id}]">จัดการอุปกรณ์</button>
                     </div>
                 </div>
             </div>
             <br><br><br>
             <div class="row d-flex justify-content-center">
-                <ng-container>
-                    <button class=" bn-secondary " style="width:170px;height:150px">แปลงผัก</button>
-                    <button class=" bn-secondary " style="width:170px;height:150px">แปลงผัก</button>
-                    <button class=" bn-secondary " style="width:170px;height:150px">แปลงผัก</button>
-                    <button class=" bn-secondary " style="width:170px;height:150px">แปลงผัก</button>
-                    <button class=" bn-secondary " style="width:170px;height:150px">แปลงผัก</button>
-                    <button class=" bn-secondary " style="width:170px;height:150px">แปลงผัก</button>
-                    <button class=" bn-secondary " style="width:170px;height:150px">แปลงผัก</button>
-                    <button class=" bn-secondary " style="width:170px;height:150px">แปลงผัก</button>
-                    <button class=" bn-secondary " style="width:170px;height:150px">แปลงผัก</button>
-                    <button class=" bn-secondary " style="width:170px;height:150px">แปลงผัก</button>
-                    <button class=" bn-secondary " style="width:170px;height:150px">แปลงผัก</button>
-                    <button class=" bn-secondary " style="width:170px;height:150px">แปลงผัก</button>
-                </ng-container>
+                <ng-container *ngFor="let displayplot of plot.name;let i = index">
+                    <button [routerLink]="['/plotmenu',{id: plot._id}]" class="bn-secondary" style="width:170px;height:150px">
+                        {{displayplot}}
+                    </button>
+                </ng-container><br><br>
             </div>
             <br><br>
 
@@ -67,3 +58,5 @@
         </div>
     </div>
 </div>
+
+
