@@ -1,3 +1,4 @@
+
 import {Routes,RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -9,6 +10,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {MatDialogModule} from '@angular/material/dialog';
 
 //page
 import { AppComponent } from './app.component';
@@ -22,7 +24,11 @@ import { AdminComponent } from './admin/admin.component';
 import { McDataComponent } from './mc-data/mc-data.component';
 import { RegisterComponent } from './register/register.component';
 import { ErrorInterceptor } from './error.interceptor';
-
+import { FertconfigComponent } from './fertconfig/fertconfig.component';
+import { WateringComponent } from './Watering/Watering.component';
+import { WateringdisplayComponent } from './wateringdisplay/wateringdisplay.component';
+import { PlotconfigComponent } from './plotconfig/plotconfig.component';
+import { PlantdbComponent } from './plantdb/plantdb.component';
 
 const Routes: Routes = [
   { path: '',  redirectTo:'/login', pathMatch:'full' },
@@ -32,10 +38,18 @@ const Routes: Routes = [
   { path: 'managedevice',  component: ManagedeviceComponent },
   { path: 'addevice',  component: AddeviceComponent },
   { path: 'plotmenu',  component: PlotMenuComponent },
+  { path: 'register',  component: RegisterComponent },
+  { path: 'fertconfig',  component: FertconfigComponent },
+  { path: 'watering',  component: WateringComponent },
+  { path: 'wateringdisplay',  component: WateringdisplayComponent },
+  { path: 'abc',  component: PlotconfigComponent },
+ 
+  /////admin/////
+
   { path: 'admin',  component: AdminComponent },
   { path: 'mcdata',  component: McDataComponent },
-  { path: 'register',  component: RegisterComponent },
-  
+  { path: 'plantdb',  component: PlantdbComponent },
+
 ];
 
 
@@ -50,7 +64,13 @@ const Routes: Routes = [
     AddeviceComponent,
     AdminComponent,
     McDataComponent,
-    RegisterComponent
+    RegisterComponent,
+    FertconfigComponent,
+    WateringComponent,
+    WateringdisplayComponent,
+    PlotconfigComponent,
+    PlantdbComponent
+
   ],
   imports: [
     BrowserModule,
@@ -61,7 +81,9 @@ const Routes: Routes = [
     MatButtonModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    MatDialogModule
+   
 
   ],
   providers: [{
