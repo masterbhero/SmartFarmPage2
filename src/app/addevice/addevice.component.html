@@ -12,14 +12,14 @@
                 <div class="form-group row">
                     <label for="inputEmail" class="col-sm-3 col-form-label ">ชื่อแปลงผัก</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" id="inputName" placeholder="ชื่อแปลงผัก">
+                        <input type="text" class="form-control" id="Name" placeholder="ชื่อแปลงผัก" #Name>
                     </div>
                 </div><br>
 
                 <div class="form-group row">
                     <label for="inputEmail" class="col-sm-3 col-form-label ">รหัสไมโครคอลโทรลเลอร์</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" id="inputLastname" placeholder="รหัสไมโครคอลโทรลเลอร์">
+                        <input type="text" class="form-control" id="ControllerCode" placeholder="รหัสไมโครคอลโทรลเลอร์" #ControllerCode>
                     </div>
                 </div><br>
 
@@ -29,7 +29,7 @@
                             <button mat-raised-button color="primary" class="btn-Menu">ย้อนกลับ</button>
                         </div>
                         <div class="col-6">
-                            <button mat-raised-button color="primary" class="btn-login">เพิ่ม</button>
+                            <button mat-raised-button color="primary" class="btn-login" (click)="AddNewPlot(Name,ControllerCode)">เพิ่ม</button>
                         </div>
                     </div>
                 </div>

@@ -5,7 +5,7 @@
 
             <div style="font-size: 25px;">จัดการอุปกรณ์
                 <div class="btn-group" role="group" aria-label="Third group">
-                    <button routerLink="/addevice" mat-raised-button color="primary" class="btn btn-login" style="font-size: 30px;"> +
+                    <button [routerLink]="['/addevice',{id:user_id}]" mat-raised-button color="primary" class="btn btn-login" style="font-size: 30px;"> +
                     </button>
                 </div>
             </div>
