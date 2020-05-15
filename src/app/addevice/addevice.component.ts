@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-addevice',
@@ -12,8 +13,15 @@ export class AddeviceComponent implements OnInit {
   url:any;
   user_id:any;
   postbody:any;
-  constructor(private router:Router,private http:HttpClient) { 
+  constructor(private router:Router,private http:HttpClient,public dialog: MatDialog) { 
     this.url = window.location.href;
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
+      width: '450px',
+      height: '300px'
+    });
   }
 
   ngOnInit(): void {
@@ -43,6 +51,20 @@ export class AddeviceComponent implements OnInit {
         //console.log(result);
       })
     })
+  }
+
+}
+
+@Component({
+  selector: 'dialog-overview-example-dialog',
+  templateUrl: 'popup-addevice.html',
+})
+export class DialogOverviewExampleDialog {
+
+  constructor(public dialogRef: MatDialogRef<DialogOverviewExampleDialog>) { }
+
+  onNoClick(): void {
+    this.dialogRef.close();
   }
 
 }
