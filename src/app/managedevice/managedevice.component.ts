@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
-
+import { HttpClient,HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-managedevice',
@@ -13,12 +13,37 @@ export class ManagedeviceComponent implements OnInit {
   user_id: any;
   plot: any;
 
-  constructor(public dialog: MatDialog) { 
+  constructor(public dialog: MatDialog,private http:HttpClient) { 
     this.url = window.location.href;
-    this.plot = {
-      name:['plot1'],
-      _id:['someid']
-    }
+    this.url = this.url.split("=", 2); 
+    this.user_id = this.url[1];
+    let getploturl = 'http://localhost:3000/plot/GetByUser/'+this.user_id;
+    this.http.get(getploturl).subscribe(result =>{
+      this.plot = result;
+      //console.log(this.plot)
+    })
+    // this.plot = 
+    //   [
+    //     {
+    //         "_id": "5ebebe41b4e04b2d34af73ff",
+    //         "Controller_id": "5ebebe3cb4e04b2d34af73fe",
+    //         "User_id": "5ea7eb0cca5b9657ac4be27a",
+    //         "Plotconfig_id": "5ebebe41b4e04b2d34af7400",
+    //         "name": "retgrgth",
+    //         "CreatedDate": "1589558849838",
+    //         "__v": 0
+    //     },
+    //     {
+    //         "_id": "5ebebe8fb4e04b2d34af7402",
+    //         "Controller_id": "5ebebe89b4e04b2d34af7401",
+    //         "User_id": "5ea7eb0cca5b9657ac4be27a",
+    //         "Plotconfig_id": "5ebebe8fb4e04b2d34af7403",
+    //         "name": "retgrgth",
+    //         "CreatedDate": "1589558927567",
+    //         "__v": 0
+    //     }
+    //   ]
+    //console.log(this.plot)
   }
   
   openDialog(): void {
@@ -29,8 +54,7 @@ export class ManagedeviceComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.url = this.url.split("=", 2); 
-    this.user_id = this.url[1];
+    
   }
 
 }

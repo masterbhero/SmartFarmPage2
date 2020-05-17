@@ -44,9 +44,9 @@
             </div>
             <br><br><br>
             <div class="row d-flex justify-content-center">
-                <ng-container *ngFor="let displayplot of plot.name;let i = index">
-                    <button [routerLink]="['/plotmenu',{id: plot._id}]" class="bn-secondary" style="width:170px;height:150px">
-                        {{displayplot}}
+                <ng-container *ngFor="let displayplot of plot;let i = index">                   
+                    <button [routerLink]="['/plotmenu',{id: displayplot._id}]" class="bn-secondary" style="width:170px;height:150px" *ngIf="plot">
+                        {{displayplot.name}}
                     </button>
                 </ng-container><br><br>
             </div>

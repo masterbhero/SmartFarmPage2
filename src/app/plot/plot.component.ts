@@ -2,9 +2,6 @@ import { HttpRequestService } from './../http-request.service';
 import { Component, OnInit } from '@angular/core';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { Observable, throwError } from 'rxjs';
-import { retry, catchError } from 'rxjs/operators';
-import { stringify } from 'querystring';
 
 @Component({
   selector: 'app-plot',
@@ -19,11 +16,10 @@ export class PlotComponent implements OnInit {
   detail: any;
   plot: any;
 
-  constructor(private http: HttpClient,private router: Router,private httpRequestService: HttpRequestService) { 
-    this.plot = {
-      name:['plot1'],
-      _id:['someid']
-    }
+  constructor(private http: HttpClient,
+    private router: Router,
+    private httpRequestService: HttpRequestService
+    ) { 
     this.detail = {
       firstname:[],
       lastname:[]
@@ -36,9 +32,13 @@ export class PlotComponent implements OnInit {
     let options = { headers: Header };
     this.http.get('http://localhost:3000/user/GetUserAndVerify/',options).subscribe(result => {
       this.detail = result;
+      //console.log(result['_id']);
+      let getploturl = 'http://localhost:3000/plot/GetByUser/'+result['_id'];
+      this.http.get(getploturl).subscribe(result =>{
+        //console.log(result);
+        this.plot = result;
+      })
     })
-    
-    
   }
 
   Logout(){ 

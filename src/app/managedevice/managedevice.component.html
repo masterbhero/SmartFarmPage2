@@ -25,10 +25,10 @@
                             <div style="text-align:center">
                                 <div class="card-body">
                                     <div class="row d-flex justify-content-center">
-                                        <ng-container *ngFor="let displayplot of plot.name;let i = index">
+                                        <ng-container *ngFor="let displayplot of plot;let i = index">
                                             <div class="col-md-5">
-                                                <div class="form-group ">
-                                                    {{displayplot}}
+                                                <div class="form-group "> 
+                                                    {{displayplot.name}}
                                                 </div>
                                             </div>
                                             <div class="col-md-5">

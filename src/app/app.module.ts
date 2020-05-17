@@ -18,7 +18,7 @@ import { LoginComponent } from './login/login.component';
 import { PlotComponent } from './plot/plot.component';
 import { EditComponent } from './edit/edit.component';
 import { PlotMenuComponent } from './plot-menu/plot-menu.component';
-import { ManagedeviceComponent } from './managedevice/managedevice.component';
+import { ManagedeviceComponent, DialogOverviewExampleDialog } from './managedevice/managedevice.component';
 import { AddeviceComponent } from './addevice/addevice.component';
 import { AdminComponent } from './admin/admin.component';
 import { McDataComponent } from './mc-data/mc-data.component';
@@ -69,7 +69,8 @@ const Routes: Routes = [
     WateringComponent,
     WateringdisplayComponent,
     PlotconfigComponent,
-    PlantdbComponent
+    PlantdbComponent,
+    DialogOverviewExampleDialog
 
   ],
   imports: [
