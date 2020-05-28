@@ -9,7 +9,7 @@
             <br><br><br><br>
 
             <div class="container">
-                <div class="row justify-content-start">
+                <!-- <div class="row justify-content-start">
                     <div class="col-3">
                         <label for="inputEmail">ชื่อ</label>
                     </div>
@@ -17,53 +17,63 @@
                         <input type="text" class="form-control" id="inputName" placeholder="ชื่อ">
                     </div>
                 </div>
-                <br><br>
+                <br><br> -->
                 <div class="row justify-content-around">
                     <div class="col-2">
-                        <label for="inputEmail">พืช</label>
+                        <label for="inputName">ชื่อ</label>
                     </div>
                     <div class="col-2">
-                        <label for="inputEmail">อุณหภูมิ</label>
+                        <label for="inputMoisture">ความชื้นในดิน</label>
                     </div>
                     <div class="col-2">
-                        <label for="inputEmail">ความชื้นในดิน</label>
-                    </div>
-                    <div class="col-2">
-                        <label for="inputEmail">แสง</label>
+                        <label for="inputLight">แสง</label>
                     </div>
                 </div>
 
                 <div class="row justify-content-around">
                     <div class="col-3">
+                        <input type="text" class="form-control" id="inputName" placeholder="ชื่อ">
+                    </div>
+                    <div class="col-3">
+                        <input type="text" class="form-control" id="inputMoisture" placeholder="15">
+                    </div>
+                    <div class="col-3">
+                        <input type="text" class="form-control" id="inputLight" placeholder="180">
+                    </div>
+                </div>
+                <br><br>
+
+                <div class="d-flex justify-content-start">
+                    &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+                    <div class="col-2">
+                        <label for="inputPlantName">พืช</label>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-start">
+                    &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+                    <div class="col-3">
                         <select class="form-control">
+                            <option value="">เลือกชนิดผัก</option>
                             <option value="">ผักบุ้ง</option>
                             <option value="">คะน้า</option>
                             <option value="">กะหล่ำปลี</option>
                             <option value="">กวางตุ้ง</option>
                         </select>
                     </div>
+                    &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
                     <div class="col-3">
-                        <input type="text" class="form-control" id="inputName" placeholder="30">
-                    </div>
-                    <div class="col-3">
-                        <input type="text" class="form-control" id="inputName" placeholder="15">
-                    </div>
-                    <div class="col-3">
-                        <input type="text" class="form-control" id="inputName" placeholder="180">
-                    </div>
-                </div>
-                <br><br>
-                <div class="row justify-content-start">
-                    <div class="col-3">
-                        <label for="inputEmail">จำนวนวันที่ใช้ปลูก</label>
+                        <label for="input">จำนวนวันที่ใช้ปลูก</label>
                     </div>
                     <div class="col-2">
-                        <label for="inputEmail">30</label>
+                        <label for="inputDay">30</label>
                     </div>
                     <div class="col-2">
-                        <label for="inputEmail">วัน</label>
+                        <label for="inputDay">วัน</label>
                     </div>
                 </div>
+
+
+
                 <br><br>
                 <div style="text-align:center">
                     <div class="card-body">
@@ -75,7 +85,7 @@
                                 <div class="col-6">
                                     <button mat-raised-button color="primary" class="btn-login">ตกลง</button>
                                 </div>
-                              </div>
+                            </div>
                         </div>
                     </div>
                 </div>
