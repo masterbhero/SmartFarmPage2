@@ -5,7 +5,7 @@
             <div style="text-align:center">
                 <div style=" font-size: 30px; ">แปลงที่ 1
                     <div style="float: right;">
-                        <button routerLink="/plotconfig" mat-raised-button color="primary" class="btn-Menu">ตั้งค่าแปลง</button>
+                        <button [routerLink]="['/plotconfig',{id: plot_id}]" mat-raised-button color="primary" class="btn-Menu">ตั้งค่าแปลง</button>
                         <br><br>
                     </div>
                 </div>
@@ -17,35 +17,13 @@
                         <div class="row justify-content-center">
                             <div class="card ">
                                 <div class="card-body">
-
-                                    <!-- <linear-gauge width="150" height="400" units="°C" min-value="0" max-value="220"
-                                        major-ticks="0,20,40,60,80,100,120,140,160,180,200,220" minor-ticks="2"
-                                        stroke-ticks="true"
-                                        highlights='[ {"from": 100, "to": 220, "color": "rgba(200, 50, 50, .75)"} ]'
-                                        color-plate="#fff" border-shadow-width="0" borders="false" needle-type="arrow"
-                                        needle-width="2" animation-duration="1500" animation-rule="linear"
-                                        tick-side="left" number-side="left" needle-side="left" bar-stroke-width="7"
-                                        bar-begin-circle="false" value="75">
-                                    </linear-gauge> -->
-
-                                </div>
-                            </div>
-                            <div class="card ">
-                                <div class="card-body">
-                                    <div class="row">
                                         <div class="row">
-                                            <!-- <img align='left' src="assets\img\pot.png" width="200px" height="200px"> -->
-                                        </div><br><br><br>
-                                        <div valign="bootom"><br><br><br><br>
-                                            <h5 align='center'>ความชื้นดิน :</h5>
-                                            <h5 align='center'>ความชื้นอากาศ :</h5>
+                                            <div valign="bootom">
+                                                <h5 align='center'>ความชื้นดิน : {{dirt_moisure}}</h5>
+                                                <h5 align='center'>ความชื้นอากาศ : {{air_moisure}}</h5>
+                                                <h5 align='right'>ความเข้มแสง : {{light}}</h5>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <br><br>
-                                    <!-- <img align='left' src="assets\img\ground.png" width="150px" height="150px"> -->
-                                    <div valign="bootom"><br><br><br>
-                                        <h5 align='right'>ความเข้มแสง : </h5>
-                                    </div>
                                 </div>
                             </div>
                         </div>

@@ -30,12 +30,9 @@ export class PlotComponent implements OnInit {
     this.httpRequestService.Verify();
     let Header = new HttpHeaders({'Authorization': 'Bearer '+localStorage.getItem('token')});
     let options = { headers: Header };
-    this.http.get('http://localhost:3000/user/GetUserAndVerify/',options).subscribe(result => {
+    this.httpRequestService.GetUserData().subscribe(result => {
       this.detail = result;
-      //console.log(result['_id']);
-      let getploturl = 'http://localhost:3000/plot/GetByUser/'+result['_id'];
-      this.http.get(getploturl).subscribe(result =>{
-        //console.log(result);
+      this.httpRequestService.GetPlotByUser(result['_id']).subscribe(result => {
         this.plot = result;
       })
     })

@@ -1,3 +1,4 @@
+import { HttpRequestService } from './../http-request.service';
 import { Component, OnInit } from '@angular/core';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
@@ -16,7 +17,7 @@ export class AddeviceComponent implements OnInit {
   postbody:any;
   result:any;
 
-  constructor(private router:Router,private http:HttpClient,public dialog: MatDialog) { 
+  constructor(private router:Router,private http:HttpClient,public dialog: MatDialog,private httpRequestService:HttpRequestService) { 
     this.url = window.location.href;
   }
 
@@ -62,7 +63,7 @@ export class AddeviceComponent implements OnInit {
         "plotname" : Name.value,
         "UserID" : this.user_id
       }
-      this.http.post(add_plot_plotconfig,this.postbody).subscribe(result => {
+      this.httpRequestService.AddPlotAndPlotConfig(this.postbody).subscribe(result => {
         //console.log(result);  
         //console.log(this.postbody)
         if(result['status'] == 'RegisterID not found'){
@@ -83,7 +84,7 @@ export class AddeviceComponent implements OnInit {
             "Controller_id" : ID['Controller_id']
           }  
           //console.log(this.postbody)
-          this.http.put(update_controller_plot,this.postbody).subscribe(result => {
+          this.httpRequestService.UpdateControllerAndPlot(this.postbody).subscribe(result => {
 
           })
           this.result = 'success';

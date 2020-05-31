@@ -42,7 +42,7 @@ const Routes: Routes = [
   { path: 'fertconfig',  component: FertconfigComponent },
   { path: 'watering',  component: WateringComponent },
   { path: 'wateringdisplay',  component: WateringdisplayComponent },
-  { path: 'abc',  component: PlotconfigComponent },
+  { path: 'plotconfig',  component: PlotconfigComponent },
  
   /////admin/////
 
