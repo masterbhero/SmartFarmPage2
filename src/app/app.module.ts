@@ -29,6 +29,14 @@ import { WateringComponent } from './Watering/Watering.component';
 import { WateringdisplayComponent } from './wateringdisplay/wateringdisplay.component';
 import { PlotconfigComponent } from './plotconfig/plotconfig.component';
 import { PlantdbComponent } from './plantdb/plantdb.component';
+import { AdminPlotComponent } from './admin-plot/admin-plot.component';
+import { AdminPlotmenuComponent } from './admin-plotmenu/admin-plotmenu.component';
+import { AdminManagedeviceComponent } from './admin-managedevice/admin-managedevice.component';
+import { AdminAddeviceComponent } from './admin-addevice/admin-addevice.component';
+import { AdminPlotconfigComponent } from './admin-plotconfig/admin-plotconfig.component';
+import { AdminWateringComponent } from './admin-watering/admin-watering.component';
+import { AdminFertconfigComponent } from './admin-fertconfig/admin-fertconfig.component';
+import { AdminWateringdisplayComponent } from './admin-wateringdisplay/admin-wateringdisplay.component';
 
 const Routes: Routes = [
   { path: '',  redirectTo:'/login', pathMatch:'full' },
@@ -49,6 +57,14 @@ const Routes: Routes = [
   { path: 'admin',  component: AdminComponent },
   { path: 'mcdata',  component: McDataComponent },
   { path: 'plantdb',  component: PlantdbComponent },
+  { path: 'adminPlot',  component: AdminPlotComponent },
+  { path: 'adminPlotmenu',  component: AdminPlotmenuComponent },
+  { path: 'adminManagedevice',  component: AdminManagedeviceComponent },
+  { path: 'adminAddevice',  component: AdminAddeviceComponent },
+  { path: 'adminPlotconfig',  component:  AdminPlotconfigComponent },
+  { path: 'adminWatering',  component:  AdminWateringComponent },
+  { path: 'adminFertconfig',  component:  AdminFertconfigComponent },
+  { path: 'adminWateringdisplay',  component:  AdminWateringdisplayComponent },
 
 ];
 
@@ -69,7 +85,15 @@ const Routes: Routes = [
     WateringComponent,
     WateringdisplayComponent,
     PlotconfigComponent,
-    PlantdbComponent
+    PlantdbComponent,
+    AdminPlotComponent,
+    AdminPlotmenuComponent,
+    AdminManagedeviceComponent,
+    AdminAddeviceComponent,
+    AdminPlotconfigComponent,
+    AdminWateringComponent,
+    AdminFertconfigComponent,
+    AdminWateringdisplayComponent
 
   ],
   imports: [

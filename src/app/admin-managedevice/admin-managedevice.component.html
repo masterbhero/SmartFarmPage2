@@ -1,0 +1,102 @@
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg static-top mb-5 shadow" style="background-color: #ffffff;">
+    <div class="container">
+        <a class="navbar-brand" href="#">Smart Farm</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+            aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">หน้าหลัก
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <!-- <button class="btn btn-danger"> ออกจากระบบ</button> -->
+                    <a class="nav-link" href="#">ออกจากระบบ</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Page Content -->
+<div class="container">
+    <div class="card border-0 shadow my-5" style="background-color: #ffffff;">
+        <div class="card-body p-5">
+
+            <div style="font-size: 25px;">จัดการอุปกรณ์
+                <div class="btn-group" role="group" aria-label="Third group">
+                    <button routerLink="/adminAddevice" mat-raised-button color="primary" class="btn btn-login" style="font-size: 30px;"> +
+                    </button>
+                </div>
+
+                <div style="float: right;">
+                    <div style="float: right;">
+                        <button routerLink="/adminPlot" mat-raised-button color="primary" class="btn btn-Menu">ย้อนกลับ</button>
+                    </div>
+                </div>
+
+            </div>
+
+            
+
+            <br>
+
+            <div style="text-align:center">
+                <div class="card-body">
+                    <div class="row d-flex justify-content-center">
+
+                        <table class="table table-secondary">
+                            <thead>
+                                <tr>
+                                    <th scope="col">ชื่อแปลงผัก</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <div style="text-align:center">
+                                <div class="card-body">
+                                    <div class="row d-flex justify-content-center">
+                                        <ng-container><br>
+                                            <div class="col-md-5">
+                                                <div class="form-group ">
+                                                    แปลงที่ 1
+                                                </div>
+                                            </div>
+                                            <div class="col-md-5">
+                                                <div class="form-group ">
+                                                    <button mat-raised-button color="primary"
+                                                        class="btn btn-Delete">ลบ</button>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-5">
+                                                <div class="form-group ">
+                                                    แปลงที่ 1
+                                                </div>
+                                            </div>
+                                            <div class="col-md-5">
+                                                <div class="form-group ">
+                                                    <button mat-raised-button color="primary"
+                                                    class="btn btn-Delete">ลบ</button>
+                                                </div>
+                                            </div>
+                                        </ng-container>
+                                    </div>
+                                </div>
+                            </div>
+                        </table>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <br><br>
+
+            <!-- <div style="height: 700px"></div>
+            <p class="lead mb-0">You've reached the end!</p> -->
+
+        </div>
+    </div>
+</div>
