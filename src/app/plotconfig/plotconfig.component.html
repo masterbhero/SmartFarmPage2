@@ -52,12 +52,8 @@
                 <div class="d-flex justify-content-start">
                     &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
                     <div class="col-3">
-                        <select class="form-control">
-                            <option value="">เลือกชนิดผัก</option>
-                            <option value="">ผักบุ้ง</option>
-                            <option value="">คะน้า</option>
-                            <option value="">กะหล่ำปลี</option>
-                            <option value="">กวางตุ้ง</option>
+                        <select class="form-control" (change)="onChange(PlantsSelect.value)" #PlantsSelect>
+                            <option *ngFor="let c of Plants" [ngValue]="c"> {{c.name}} </option>
                         </select>
                     </div>
                     &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;

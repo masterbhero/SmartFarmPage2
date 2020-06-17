@@ -26,7 +26,7 @@
                 <div class="row d-flex justify-content-center">
                     <div class="row">
                         <div class="col-6">
-                            <button mat-raised-button color="primary" class="btn-Menu">ย้อนกลับ</button>
+                            <button mat-raised-button [routerLink]="['/managedevice',{id:user_id}]" color="primary" class="btn-Menu" type="button">ย้อนกลับ</button>
                         </div>
                         <div class="col-6">
                             <button mat-raised-button color="primary" class="btn-login" (click)="AddNewPlot(Name,ControllerCode)">เพิ่ม</button>

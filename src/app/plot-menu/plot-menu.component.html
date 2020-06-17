@@ -19,9 +19,10 @@
                                 <div class="card-body">
                                         <div class="row">
                                             <div valign="bootom">
-                                                <h5 align='center'>ความชื้นดิน : {{dirt_moisure}}</h5>
-                                                <h5 align='center'>ความชื้นอากาศ : {{air_moisure}}</h5>
                                                 <h5 align='right'>ความเข้มแสง : {{light}}</h5>
+                                                <h5 align='right'>อุณหภูมิ : {{temp}}</h5>
+                                                <h5 align='right'>ความชื้นดิน : {{dirt_moisure}}</h5>
+                                                <h5 align='right'>ความชื้นอากาศ : {{air_moisure}}</h5>
                                             </div>
                                         </div>
                                 </div>
@@ -41,7 +42,7 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>1/1/2562</td>
+                            <td>{{ CreatedDate | date:'d/M/yyyy' }}   </td>
                             <td>30/1/2562</td>
                         </tr>
                 </table>

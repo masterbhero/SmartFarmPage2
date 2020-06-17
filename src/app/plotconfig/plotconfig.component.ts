@@ -13,10 +13,18 @@ export class PlotconfigComponent implements OnInit {
   plot_id: any;
   postbody: any;
   PlotConfig: any;
+  Plants:any;
   constructor(private httpRequestService:HttpRequestService,private router:Router) { 
   }
 
   ngOnInit(): void {
+    this.Plants = [
+      {id: 1, name: "เลือกชนิดผัก"},
+      {id: 2, name: "ผักบุ้ง"},
+      {id: 3, name: "คะน้า"},
+      {id: 4, name: "กะหล่ำปลี"},
+      {id: 5, name: "กวางตุ้ง"}
+    ];
     this.PlotConfig = {
       name:"",
       dirthumid:"",
@@ -53,4 +61,11 @@ export class PlotconfigComponent implements OnInit {
     }
   }
 
+  //devices = 'one two three'.split(' ');
+  //selectedDevice = 'two';
+  onChange(newValue) {
+    console.log(newValue);
+    //this.selectedDevice = newValue;
+    // ... do other stuff here ...
+  }
 }
