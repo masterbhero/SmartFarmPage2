@@ -1,0 +1,71 @@
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg static-top mb-5 shadow" style="background-color: #ffffff;">
+    <div class="container">
+        <a class="navbar-brand" href="#">Smart Farm</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+            aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">หน้าหลัก
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <!-- <button class="btn btn-danger"> ออกจากระบบ</button> -->
+                    <a class="nav-link" href="#">ออกจากระบบ</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Page Content -->
+<div class="container">
+    <div class="card border-0 shadow my-5" style="background-color: #ffffff;">
+        <div class="card-body p-5">
+
+            <div style="text-align:center">
+                <div class="text-dark" style="font-size: 30px;">เพิ่มอุปกรณ์</div>
+            </div>
+            <br><br><br><br>
+
+            <form class="form-horizontal" method="post" action="#">
+                <div class="form-group row">
+                    <label for="inputEmail" class="col-sm-3 col-form-label ">ชื่อแปลงผัก</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="inputName" placeholder="ชื่อแปลงผัก">
+                    </div>
+                </div><br>
+
+                <div class="form-group row">
+                    <label for="inputEmail" class="col-sm-3 col-form-label ">รหัสไมโครคอลโทรลเลอร์</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="inputLastname" placeholder="รหัสไมโครคอลโทรลเลอร์">
+                    </div>
+                </div><br>
+
+                <div class="row d-flex justify-content-center">
+                    <div class="row">
+                        <div class="col-6">
+                            <button mat-raised-button color="primary" class="btn-Menu">ย้อนกลับ</button>
+                        </div>
+                        <div class="col-6">
+                            <button mat-raised-button color="primary" class="btn-login">เพิ่ม</button>
+                        </div>
+                    </div>
+                </div>
+
+
+            </form>
+
+            <br><br>
+
+            <!-- <div style="height: 700px"></div>
+            <p class="lead mb-0">You've reached the end!</p> -->
+
+        </div>
+    </div>
+</div>

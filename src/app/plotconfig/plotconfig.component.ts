@@ -45,8 +45,8 @@ export class PlotconfigComponent implements OnInit {
 
     this.postbody = {
       "name":name.value,
-      "dirthumid":dirthumid.value,
-      "light":light.value,
+      "dirthumid":parseInt(dirthumid.value).toString(),
+      "light":parseInt(light.value).toString(),
       "id":this.PlotConfig['_id']
     }
 

@@ -9,18 +9,34 @@
             <br><br><br><br>
 
             <div class="container">
-                <!-- <div class="row justify-content-start">
-                    <div class="col-3">
-                        <label for="inputEmail">ชื่อ</label>
-                    </div>
-                    <div class="col-4">
-                        <input type="text" class="form-control" id="inputName" placeholder="ชื่อ">
-                    </div>
-                </div>
-                <br><br> -->
                 <div class="row justify-content-around">
                     <div class="col-2">
-                        <label for="inputName">ชื่อ</label>
+                        <label for="inputName"></label>
+                    </div>
+                    <div class="col-2">
+                        <label for="inputMoisture">ชื่อ</label>
+                    </div>
+                    <div class="col-2">
+                        <label for="inputLight"></label>
+                    </div>
+                </div>
+
+                <div class="row justify-content-around">
+                    <div class="col-2">
+
+                    </div>
+                    <div class="col-3">
+                        <input type="text" class="form-control" id="inputName" value={{PlotConfig.name}} #name>
+                    </div>
+                    <div class="col-3">
+
+                    </div>
+                </div>
+                <br><br>
+
+                <div class="row justify-content-around">
+                    <div class="col-2">
+                        <label for="inputName"></label>
                     </div>
                     <div class="col-2">
                         <label for="inputMoisture">ความชื้นในดิน</label>
@@ -30,9 +46,9 @@
                     </div>
                 </div>
 
-                <div class="row justify-content-around">
-                    <div class="col-3">
-                        <input type="text" class="form-control" id="inputName" value={{PlotConfig.name}} #name>
+                <div class="row justify-content-around">    
+                    <div class="col-2">
+                        <label for="inputName">ต้นกล้า (7 วัน)</label>
                     </div>
                     <div class="col-3">
                         <input type="text" class="form-control" id="inputMoisture" value={{PlotConfig.dirthumid}} #dirthumid>
@@ -43,27 +59,72 @@
                 </div>
                 <br><br>
 
-                <div class="d-flex justify-content-start">
-                    &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+                <div class="row justify-content-around">
                     <div class="col-2">
-                        <label for="inputPlantName">พืช</label>
+                        <label for="inputName"></label>
+                    </div>
+                    <div class="col-2">
+                        <label for="inputMoisture">ความชื้นในดิน</label>
+                    </div>
+                    <div class="col-2">
+                        <label for="inputLight">แสง</label>
                     </div>
                 </div>
+
+                <div class="row justify-content-around">
+                    <div class="col-2">
+                        <label for="inputName">ต้นอ่อน</label>
+                    </div>
+                    <div class="col-3">
+                        <input type="text" class="form-control" id="inputMoisture" placeholder="15">
+                    </div>
+                    <div class="col-3">
+                        <input type="text" class="form-control" id="inputLight" placeholder="180">
+                    </div>
+                </div>
+                <br><br>
+                <div class="row justify-content-around">
+                    <div class="col-2">
+                        <label for="inputName"></label>
+                    </div>
+                    <div class="col-2">
+                        <label for="inputMoisture">ความชื้นในดิน</label>
+                    </div>
+                    <div class="col-2">
+                        <label for="inputLight">แสง</label>
+                    </div>
+                </div>
+                <div class="row justify-content-around">
+                    <div class="col-2">
+                        <label for="inputName">ต้นโต</label>
+                    </div>
+                    <div class="col-3">
+                        <input type="text" class="form-control" id="inputMoisture" placeholder="15">
+                    </div>
+                    <div class="col-3">
+                        <input type="text" class="form-control" id="inputLight" placeholder="180">
+                    </div>
+                </div>
+                <br><br>
                 <div class="d-flex justify-content-start">
-                    &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+                    <div class="col-4">
+                        &nbsp;&nbsp; &nbsp;&nbsp;
+                        <label for="inputMoisture">คำแนะนำ</label>
+                    </div>
                     <div class="col-3">
                         <select class="form-control" (change)="onChange(PlantsSelect.value)" #PlantsSelect>
                             <option *ngFor="let c of Plants" [ngValue]="c"> {{c.name}} </option>
                         </select>
                     </div>
-                    &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
-                    <div class="col-3">
+                    &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+                    &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+                    <div class="col-2">
                         <label for="input">จำนวนวันที่ใช้ปลูก</label>
                     </div>
-                    <div class="col-2">
+                    <div class="col-1">
                         <label for="inputDay">30</label>
                     </div>
-                    <div class="col-2">
+                    <div class="col-1">
                         <label for="inputDay">วัน</label>
                     </div>
                 </div>
