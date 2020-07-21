@@ -39,6 +39,7 @@ import { AdminFertconfigComponent } from './admin-fertconfig/admin-fertconfig.co
 import { AdminWateringdisplayComponent } from './admin-wateringdisplay/admin-wateringdisplay.component';
 import { MoistureMonitorComponent } from './moisture-monitor/moisture-monitor.component';
 import { PlotmenuStartComponent } from './plotmenu-start/plotmenu-start.component';
+import { AddControllerComponent } from './add-controller/add-controller.component';
 
 const Routes: Routes = [
   { path: '',  redirectTo:'/login', pathMatch:'full' },
@@ -68,6 +69,7 @@ const Routes: Routes = [
   { path: 'adminWatering',  component:  AdminWateringComponent },
   { path: 'adminFertconfig',  component:  AdminFertconfigComponent },
   { path: 'adminWateringdisplay',  component:  AdminWateringdisplayComponent },
+  { path: 'Addcontroller',  component:  AddControllerComponent },
 
 ];
 
@@ -98,7 +100,8 @@ const Routes: Routes = [
     AdminFertconfigComponent,
     AdminWateringdisplayComponent,
     MoistureMonitorComponent,
-    PlotmenuStartComponent
+    PlotmenuStartComponent,
+    AddControllerComponent
 
   ],
   imports: [
