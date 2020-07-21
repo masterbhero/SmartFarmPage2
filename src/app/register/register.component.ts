@@ -6,6 +6,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 
 
 
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -13,7 +14,10 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(private http: HttpClient,private router: Router,private httpRequestService: HttpRequestService,private fb:FormBuilder) { }
+  constructor(private http: HttpClient
+    ,private router: Router
+    ,private httpRequestService: HttpRequestService
+    ,private fb:FormBuilder) { }
 
   postbody: any;
   regis_form: FormGroup;
@@ -29,6 +33,28 @@ export class RegisterComponent implements OnInit {
   }
 
   Register(){
+    this.postbody = {
+      firstname: this.regis_form.value['firstname'],
+      lastname: this.regis_form.value['lastname'],
+      email: this.regis_form.value['email'],
+      password: this.regis_form.value['password'],
+      confirmpassword: this.regis_form.value['confirmpassword']
+    }
+
+    this.httpRequestService.Register(this.postbody).subscribe(result =>{
+
+      const status = JSON.stringify(result['status']);
+
+      if(status == "\"success\""){
+        this.router.navigate(['/login']);
+      }
+      else if(status == "\"user already exist\""){
+  
+      }
+      else{
+  
+      }
+    }) 
 
   }
 

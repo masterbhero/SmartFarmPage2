@@ -31,27 +31,29 @@ export class HttpRequestService {
   private register_pord = 'https://smartflowfarm.xyz/api3000/user/AddUser';
   private GetUser_pord = 'https://smartflowfarm.xyz/api3000/user/';
   private GetPlot_pord = 'https://smartflowfarm.xyz/api3000/plot/GetByUser/';
-  private add_plot_plotconfig_pord = 'https://smartflowfarm.xyz/api3000/combine/add_plot_plotconfig';
-  private update_controller_plot_pord = 'https://smartflowfarm.xyz/api3000/combine/update_controller_plot';
+  private add_plot_plotconfig_prod = 'https://smartflowfarm.xyz/api3000/combine/add_plot_plotconfig';
+  private update_controller_plot_prod = 'https://smartflowfarm.xyz/api3000/combine/update_controller_plot';
+  private getPlotConfig_pord = 'http://localhost:3000/plotconfig/';
+  private UpdatePlotConfig_prod = 'http://localhost:3000/plotconfig/';
 
   result: any;
 
   constructor(private http: HttpClient,private router:Router) { }
   
   Login(postbody: any){
-    this.http.post(this.login, postbody).subscribe(result => {
-      this.result = result;    
-    });
-    return this.result;
+    // this.http.post(this.login, postbody).subscribe(result => {
+    //   this.result = result;    
+    // });
+    return this.http.post(this.login, postbody);
   }
 
   Verify() {
     let Header = new HttpHeaders({'Authorization': 'Bearer '+localStorage.getItem('token')});
     let options = { headers: Header };
-    this.http.post(this.verify,null,options).subscribe(result => {
-      this.result = result
-    });
-    return this.result;
+    // this.http.post(this.verify,null,options).subscribe(result => {
+    //   this.result = result
+    // });
+    return this.http.post(this.verify,null,options);
   }
 
   LogOut(){
@@ -60,10 +62,10 @@ export class HttpRequestService {
   }
 
   Register(postbody: any){
-    this.http.post(this.register, postbody).subscribe(result => {
-      this.result = result;    
-    });
-    return this.result;
+    // this.http.post(this.register, postbody).subscribe(result => {
+    //   this.result = result;    
+    // });
+    return this.http.post(this.register, postbody);
   }
 
   GetUserData(){

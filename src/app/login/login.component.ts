@@ -30,19 +30,21 @@ export class LoginComponent implements OnInit {
       "password": password.value
     }
 
-    let result = this.httpRequestService.Login(this.postbody);    
+    this.httpRequestService.Login(this.postbody).subscribe(result =>{
+      const status = JSON.stringify(result['status']);
+      if(status == "\"success\""){
+        const str = JSON.stringify(result['token']);
+        localStorage.setItem('token',str);
+        this.router.navigate(['/plot']);
+      }
+      else if(status == "\"wrong password\""){
 
-    const status = JSON.stringify(result['status']);
-    if(status == "\"success\""){
-      const str = JSON.stringify(result['token']);
-      localStorage.setItem('token',str);
-      this.router.navigate(['/plot']);
-    }
-    else if(status == "\"wrong password\""){
+      }
+      else if(status == "\"User does not exist\""){
 
-    }
-    else if(status == "\"User does not exist\""){
+      }
+    }) 
 
-    }
+    
   }
 }
