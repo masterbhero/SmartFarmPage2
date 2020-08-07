@@ -16,15 +16,45 @@ class Login {
 })
 export class HttpRequestService {
 
-  private login = 'http://localhost:3000/user/login';
-  private verify = 'http://localhost:3000/user/verify';
-  private register = 'http://localhost:3000/user/AddUser';
-  private GetUser = 'http://localhost:3000/user/GetUserAndVerify/';
-  private GetPlot = 'http://localhost:3000/plot/';
-  private add_plot_plotconfig = 'http://localhost:3000/combine/add_plot_plotconfig';
-  private update_controller_plot = 'http://localhost:3000/combine/update_controller_plot';
-  private getPlotConfig = 'http://localhost:3000/plotconfig/';
-  private UpdatePlotConfig = 'http://localhost:3000/plotconfig/';
+  // private login = 'http://localhost:3000/user/login';
+  // private verify = 'http://localhost:3000/user/verify';
+  // private register = 'http://localhost:3000/user/AddUser';
+  // private GetUser = 'http://localhost:3000/user/GetUserAndVerify/';
+  // private GetPlot = 'http://localhost:3000/plot/';
+  // private add_plot_plotconfig = 'http://localhost:3000/combine/add_plot_plotconfig';
+  // private update_controller_plot = 'http://localhost:3000/combine/update_controller_plot';
+  // private getPlotConfig = 'http://localhost:3000/plotconfig/';
+  // private UpdatePlotConfig = 'http://localhost:3000/plotconfig/';
+
+  // private login = 'https://smartflowfarm.xyz/api3000/user/login';
+  // private verify = 'https://smartflowfarm.xyz/api3000/user/verify';
+  // private register = 'https://smartflowfarm.xyz/api3000/user/AddUser';
+  // private GetUser = 'https://smartflowfarm.xyz/api3000/user/GetUserAndVerify/';
+  // private GetPlot = 'https://smartflowfarm.xyz/api3000/plot/';
+  // private add_plot_plotconfig = 'https://smartflowfarm.xyz/api3000/combine/add_plot_plotconfig';
+  // private update_controller_plot = 'https://smartflowfarm.xyz/api3000/combine/update_controller_plot';
+  // private getPlotConfig = 'https://smartflowfarm.xyz/api3000/plotconfig/';
+  // private UpdatePlotConfig = 'https://smartflowfarm.xyz/api3000/plotconfig/';
+
+  private login = 'https://smartflowfarm.info/api3001/user/login';
+  private verify = 'https://smartflowfarm.info/api3001/user/verify';
+  private register = 'https://smartflowfarm.info/api3001/user/AddUser';
+  private GetUser = 'https://smartflowfarm.info/api3001/user/GetUserAndVerify/';
+  private GetPlot = 'https://smartflowfarm.info/api3001/plot/';
+  private add_plot_plotconfig = 'https://smartflowfarm.info/api3001/combine/add_plot_plotconfig';
+  private update_controller_plot = 'https://smartflowfarm.info/api3001/combine/update_controller_plot';
+  private getPlotConfig = 'https://smartflowfarm.info/api3001/plotconfig/';
+  private UpdatePlotConfig = 'https://smartflowfarm.info/api3001/plotconfig/';
+
+  // private login = 'https://smartflowfarm.info/api3000/user/login';
+  // private verify = 'https://smartflowfarm.info/api3000/user/verify';
+  // private register = 'https://smartflowfarm.info/api3000/user/AddUser';
+  // private GetUser = 'https://smartflowfarm.info/api3000/user/GetUserAndVerify/';
+  // private GetPlot = 'https://smartflowfarm.info/api3000/plot/';
+  // private add_plot_plotconfig = 'https://smartflowfarm.info/api3000/combine/add_plot_plotconfig';
+  // private update_controller_plot = 'https://smartflowfarm.info/api3000/combine/update_controller_plot';
+  // private getPlotConfig = 'https://smartflowfarm.info/api3000/plotconfig/';
+  // private UpdatePlotConfig = 'https://smartflowfarm.info/api3000/plotconfig/';
 
   private login_prod = 'https://smartflowfarm.xyz/api3000/user/login';
   private verify_prod = 'https://smartflowfarm.xyz/api3000/user/verify';
@@ -33,8 +63,8 @@ export class HttpRequestService {
   private GetPlot_pord = 'https://smartflowfarm.xyz/api3000/plot/GetByUser/';
   private add_plot_plotconfig_prod = 'https://smartflowfarm.xyz/api3000/combine/add_plot_plotconfig';
   private update_controller_plot_prod = 'https://smartflowfarm.xyz/api3000/combine/update_controller_plot';
-  private getPlotConfig_pord = 'http://localhost:3000/plotconfig/';
-  private UpdatePlotConfig_prod = 'http://localhost:3000/plotconfig/';
+  private getPlotConfig_pord = 'https://smartflowfarm.xyz/api3000/plotconfig/';
+  private UpdatePlotConfig_prod = 'https://smartflowfarm.xyz/api3000/plotconfig/';
 
   result: any;
 

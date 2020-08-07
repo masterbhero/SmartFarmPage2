@@ -3,7 +3,7 @@
         <div class="card-body p-5">
 
             <div style="text-align:center">
-                <div style=" font-size: 30px; ">แปลงที่ 1
+                <div style=" font-size: 30px; ">{{plot_name}}
                     <div style="float: right;">
                         <button [routerLink]="['/plotconfig',{id: plot_id}]" mat-raised-button color="primary" class="btn-Menu">ตั้งค่าแปลง</button>
                         <br><br>
@@ -23,6 +23,7 @@
                                                 <h5 align='right'>อุณหภูมิ : {{temp}}</h5>
                                                 <h5 align='right'>ความชื้นดิน : {{dirt_moisure}}</h5>
                                                 <h5 align='right'>ความชื้นอากาศ : {{air_moisure}}</h5>
+                                                <h5 align='right'>update : {{CurrentDate | date:'hh:mm:ss'}}</h5>
                                             </div>
                                         </div>
                                 </div>
