@@ -11,6 +11,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatDialogModule} from '@angular/material/dialog';
+import { ChartModule } from 'angular2-chartjs';
 
 //page
 import { AppComponent } from './app.component';
@@ -101,7 +102,7 @@ const Routes: Routes = [
     AdminWateringdisplayComponent,
     MoistureMonitorComponent,
     PlotmenuStartComponent
-
+    
   ],
   imports: [
     BrowserModule,
@@ -113,8 +114,8 @@ const Routes: Routes = [
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
-    MatDialogModule
-   
+    MatDialogModule,
+    ChartModule 
 
   ],
   providers: [{

@@ -70,7 +70,7 @@
                             <td>
 
                                 <button routerLink="/fertconfig" mat-raised-button color="primary" class="btn-Menu">ตั้งค่าปุ๋ย</button></td>
-                            <td> <button routerLink="/watering" mat-raised-button color="primary" class="btn-Menu">ประวัติการให้น้ำ</button>
+                            <td> <button [routerLink]="['/watering',{id: plot_id,controller: controller_id}]" mat-raised-button color="primary" class="btn-Menu">ประวัติการให้น้ำ</button>
                             </td>
                         </tr>
                     </tbody>

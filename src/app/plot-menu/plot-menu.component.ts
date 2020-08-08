@@ -16,6 +16,7 @@ export class PlotMenuComponent implements OnInit {
   air_moisure:any;
   user_id:any;
   url: any;
+  controller_id: any;
   plot_id: any;
   plot_name: any;
   CurrentDate: any;
@@ -31,10 +32,11 @@ export class PlotMenuComponent implements OnInit {
     this.air_moisure = "Nan";
     this.url = window.location.href;
     this.url = this.url.split("=", 2); 
-    this.plot_id = this.url[1]
+    this.plot_id = this.url[1];
     //console.log(this.plot_id)
     this.httpRequestService.GetPlotByPlot(this.plot_id).subscribe((result) => {
         //console.log(result);
+        this.controller_id = result['Controller_id'];
         this.CreatedDate = result['CreatedDate'];
         this.plot_name = result['name'];
         this.user_id = result['User_id'];
@@ -54,6 +56,12 @@ export class PlotMenuComponent implements OnInit {
     })
   }
 
-  
+  disconnected(){
+    this.socketIoService.disconnect();
+  }
+
+  ngOnDestroy(){
+    this.socketIoService.disconnect();
+  }
 
 }

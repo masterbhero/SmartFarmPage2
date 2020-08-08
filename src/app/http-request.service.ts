@@ -45,6 +45,7 @@ export class HttpRequestService {
   private update_controller_plot = 'https://smartflowfarm.info/api3001/combine/update_controller_plot';
   private getPlotConfig = 'https://smartflowfarm.info/api3001/plotconfig/';
   private UpdatePlotConfig = 'https://smartflowfarm.info/api3001/plotconfig/';
+  private Sensordata = 'https://smartflowfarm.info/api3001/sensordata/'
 
   // private login = 'https://smartflowfarm.info/api3000/user/login';
   // private verify = 'https://smartflowfarm.info/api3000/user/verify';
@@ -114,6 +115,10 @@ export class HttpRequestService {
 
   GetPlotConfigByPlotID(id:string){
     return this.http.get(this.getPlotConfig+"GetByPlotID/"+id);
+  }
+
+  GetSensorDataByID(id:string){
+    return this.http.get(this.Sensordata+"GetDataByID/"+id);
   }
 
   AddPlotAndPlotConfig(postbody: any){

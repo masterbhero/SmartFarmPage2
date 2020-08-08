@@ -21,15 +21,18 @@
                     </script>
                     <br><br><br>
                     
+                    <div class="chart-container" style="width: 1000px; height:400;">
+                        <chart [type]="typeChart" [data]="dataChart" [options]="optionsChart"></chart>
+                    </div>
                     <div class="row d-flex justify-content-center">
                         <div class="col-md-3">
                             <div class="form-group ">
-                                <button routerLink="/plotmenu" mat-raised-button color="primary" class="btn-Menu">ย้อนกลับ</button>
+                                <button [routerLink]="['/plotmenu',{id: plot_id}]" mat-raised-button color="primary" class="btn-Menu">ย้อนกลับ</button>
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="form-group ">
-                                <button routerLink="/plotmenu" mat-raised-button color="primary" class="btn-login">ตกลง</button>
+                                <button  mat-raised-button color="primary" class="btn-login">ตกลง</button>
                             </div>
                         </div>
                     </div>
