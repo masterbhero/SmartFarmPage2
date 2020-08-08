@@ -22,9 +22,10 @@ export class WateringComponent implements OnInit {
   constructor(private httpRequestService:HttpRequestService) { }
 
   ngOnInit(): void {
-    this.one = 100;
     this.SetVar();
-    this.httpRequestService.GetSensorDataByID(this.controller_id).subscribe((result) =>{
+    let timenow = Date.now() - 3600000;
+    //console.log(timenow)
+    this.httpRequestService.GetSensorDataByIDAndTime(this.controller_id,timenow.toString()).subscribe((result) =>{
       //console.log(result)
       this.SetArray(result);
       this.SetChart();
@@ -61,6 +62,17 @@ export class WateringComponent implements OnInit {
        }]
     }
     };
+  }
+
+  GetDate(DateIn: HTMLInputElement){
+    this.one = [];
+    var myDate = DateIn.value;
+    this.one = myDate.split("-");
+    //var newDate = this.one[2]+"/"+this.one[1]+"/"+this.one[0];
+    var newDate = new Date(myDate);
+    console.log(newDate);
+    console.log(newDate.getTime());
+    //console.log(Date.value);
   }
 
   SetVar(){

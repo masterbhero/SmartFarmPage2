@@ -11,14 +11,8 @@
             <div style="text-align:center">
                 <div class="card-body">
 
-                    <input type="date" id="myDate" value="2014-02-09">
-                    <p id="demo"></p>
-                    <script>
-                        function myFunction() {
-                            var x = document.getElementById("myDate").value;
-                            document.getElementById("demo").innerHTML = x;
-                        }
-                    </script>
+                    <input type="date" id="myDate"  #Date>
+
                     <br><br><br>
                     
                     <div class="chart-container" style="width: 1000px; height:400;">
@@ -32,7 +26,7 @@
                         </div>
                         <div class="col-md-3">
                             <div class="form-group ">
-                                <button  mat-raised-button color="primary" class="btn-login">ตกลง</button>
+                                <button  mat-raised-button color="primary" class="btn-login" (click)="GetDate(Date)">ตกลง</button>
                             </div>
                         </div>
                     </div>

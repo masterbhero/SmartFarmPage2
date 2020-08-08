@@ -51,7 +51,7 @@ export class SocketIoService {
 
   disconnect(){
 
-    console.log('disconnected', this)
+    //console.log('disconnected', this)
     return this.socket.disconnect();
 
   }
