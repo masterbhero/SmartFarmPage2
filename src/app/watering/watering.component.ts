@@ -23,10 +23,12 @@ export class WateringComponent implements OnInit {
 
   ngOnInit(): void {
     this.SetVar();
-    let timenow = Date.now() - 3600000;
-    //console.log(timenow)
-    this.httpRequestService.GetSensorDataByIDAndTime(this.controller_id,timenow.toString()).subscribe((result) =>{
-      //console.log(result)
+    let timestamp1 = Date.now() - 3600000*6;
+    let timestamp2 = Date.now();
+    console.log(timestamp1)
+    console.log(timestamp2)
+    this.httpRequestService.GetSensorDataByIDAndTimeRange(this.controller_id,timestamp1.toString(),timestamp2.toString()).subscribe((result) =>{
+      console.log(result)
       this.SetArray(result);
       this.SetChart();
     })
@@ -55,7 +57,7 @@ export class WateringComponent implements OnInit {
         xAxes: [{
           ticks: {
              userCallback: function(item, index) {
-                if (!(index % 864)) return item;
+                if (!(index % 600)) return item;
              },
              autoSkip: false
           }

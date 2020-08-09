@@ -125,6 +125,10 @@ export class HttpRequestService {
     return this.http.get(this.Sensordata+"GetDataByIDAndTime/"+id+"/"+time);
   }
 
+  GetSensorDataByIDAndTimeRange(id:string,time1:string,time2:string){
+    return this.http.get(this.Sensordata+"GetDataByIDAndTimeRange/"+id+"/"+time1+"/"+time2);
+  }
+
   AddPlotAndPlotConfig(postbody: any){
     return this.http.post(this.add_plot_plotconfig, postbody)
   }
