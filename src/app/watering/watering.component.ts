@@ -23,7 +23,7 @@ export class WateringComponent implements OnInit {
 
   ngOnInit(): void {
     this.SetVar();
-    let timestamp1 = Date.now() - 3600000*6;
+    let timestamp1 = Date.now() - 3600000*3;
     let timestamp2 = Date.now();
     console.log(timestamp1)
     console.log(timestamp2)
@@ -36,6 +36,7 @@ export class WateringComponent implements OnInit {
   }
 
   SetChart(){
+    var x = 3;
     this.typeChart = 'line';   ////// สามารถกำหนดเป็น 'line','bar','radar','pie','doughnut','polarArea','bubble','scatter'
     this.dataChart = {
       labels: this.testDate,
@@ -43,6 +44,8 @@ export class WateringComponent implements OnInit {
         {
           label: "ความชื้น",
           data: this.testvalue,
+          borderColor: "#34c9eb",
+          backgroundColor: "#a8e0ed",
         }
       ]
     };
@@ -57,12 +60,17 @@ export class WateringComponent implements OnInit {
         xAxes: [{
           ticks: {
              userCallback: function(item, index) {
-                if (!(index % 600)) return item;
+                if (!(index % (x*60))) return item;
              },
              autoSkip: false
           }
        }]
-    }
+      },
+      elements: {
+        point:{
+            radius: 0
+        }
+      }
     };
   }
 
