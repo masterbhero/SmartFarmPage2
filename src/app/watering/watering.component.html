@@ -10,14 +10,86 @@
 
             <div style="text-align:center">
                 <div class="card-body">
-
-                    <input type="date" id="myDate"  #Date>
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-md-3">
+                            <div class="form-group ">
+                                <input type="date" id="myDate"  #Date>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group ">
+                                <select class="form-control" #time1>
+                                    <option value="">เลือกช่วงเวลา</option>
+                                    <option value="">0</option>
+                                    <option value="">1</option>
+                                    <option value="">2</option>
+                                    <option value="">3</option>
+                                    <option value="">4</option>
+                                    <option value="">5</option>
+                                    <option value="">6</option>
+                                    <option value="">7</option>
+                                    <option value="">8</option>
+                                    <option value="">9</option>
+                                    <option value="">10</option>
+                                    <option value="">11</option>
+                                    <option value="">12</option>
+                                    <option value="">13</option>
+                                    <option value="">14</option>
+                                    <option value="">15</option>
+                                    <option value="">16</option>
+                                    <option value="">17</option>
+                                    <option value="">18</option>
+                                    <option value="">19</option>
+                                    <option value="">20</option>
+                                    <option value="">21</option>
+                                    <option value="">22</option>
+                                    <option value="">23</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group ">
+                                <select class="form-control" #time2>
+                                    <option value="">เลือกช่วงเวลา</option>
+                                    <option value="">0</option>
+                                    <option value="">1</option>
+                                    <option value="">2</option>
+                                    <option value="">3</option>
+                                    <option value="">4</option>
+                                    <option value="">5</option>
+                                    <option value="">6</option>
+                                    <option value="">7</option>
+                                    <option value="">8</option>
+                                    <option value="">9</option>
+                                    <option value="">10</option>
+                                    <option value="">11</option>
+                                    <option value="">12</option>
+                                    <option value="">13</option>
+                                    <option value="">14</option>
+                                    <option value="">15</option>
+                                    <option value="">16</option>
+                                    <option value="">17</option>
+                                    <option value="">18</option>
+                                    <option value="">19</option>
+                                    <option value="">20</option>
+                                    <option value="">21</option>
+                                    <option value="">22</option>
+                                    <option value="">23</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
 
                     <br><br><br>
                     
-                    <div class="chart-container" style="width: 1000px; height:400;">
-                        <chart [type]="typeChart" [data]="dataChart" [options]="optionsChart"></chart>
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-md-12">
+                            <div class="chart-container">
+                                <chart [type]="typeChart" [data]="dataChart" [options]="optionsChart"></chart>
+                            </div>
+                        </div>
                     </div>
+                    
                     <div class="row d-flex justify-content-center">
                         <div class="col-md-3">
                             <div class="form-group ">
@@ -26,16 +98,12 @@
                         </div>
                         <div class="col-md-3">
                             <div class="form-group ">
-                                <button  mat-raised-button color="primary" class="btn-login" (click)="GetDate(Date)">ตกลง</button>
+                                <button  mat-raised-button color="primary" class="btn-login" (click)="GetDate(Date,time1,time2)">ตกลง</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <!-- <div style="height: 700px"></div>
-            <p class="lead mb-0">You've reached the end!</p> -->
-
         </div>
     </div>
 </div>

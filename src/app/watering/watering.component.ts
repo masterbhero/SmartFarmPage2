@@ -14,16 +14,21 @@ export class WateringComponent implements OnInit {
   testdata: any;
   testvalue: any;
   testDate: any;
-  one: any;
+  Date: any;
+  multiply: any;
 
   typeChart: any;
   dataChart: any;
   optionsChart: any;
+  time1:[
+    
+  ]
   constructor(private httpRequestService:HttpRequestService) { }
 
   ngOnInit(): void {
     this.SetVar();
-    let timestamp1 = Date.now() - 3600000*3;
+    this.multiply = 10;
+    let timestamp1 = Date.now() - 3600000*this.multiply;
     let timestamp2 = Date.now();
     console.log(timestamp1)
     console.log(timestamp2)
@@ -36,7 +41,7 @@ export class WateringComponent implements OnInit {
   }
 
   SetChart(){
-    var x = 3;
+    var x = this.multiply;
     this.typeChart = 'line';   ////// สามารถกำหนดเป็น 'line','bar','radar','pie','doughnut','polarArea','bubble','scatter'
     this.dataChart = {
       labels: this.testDate,
@@ -60,7 +65,7 @@ export class WateringComponent implements OnInit {
         xAxes: [{
           ticks: {
              userCallback: function(item, index) {
-                if (!(index % (x*60))) return item;
+                if (!(index % (x*120))) return item;
              },
              autoSkip: false
           }
@@ -74,14 +79,16 @@ export class WateringComponent implements OnInit {
     };
   }
 
-  GetDate(DateIn: HTMLInputElement){
-    this.one = [];
+  GetDate(DateIn: HTMLInputElement,time1: HTMLInputElement,time2: HTMLInputElement){
+    console.log(time1.value);
+    console.log(time2.value);
+    this.Date = [];
     var myDate = DateIn.value;
-    this.one = myDate.split("-");
+    this.Date = myDate.split("-");
     //var newDate = this.one[2]+"/"+this.one[1]+"/"+this.one[0];
     var newDate = new Date(myDate);
-    console.log(newDate);
-    console.log(newDate.getTime());
+    //console.log(newDate);
+    //console.log(newDate.getTime());
     //console.log(Date.value);
   }
 
