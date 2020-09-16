@@ -43,8 +43,11 @@
                                             </div>
                                             <div class="col-md-5">
                                                 <div class="form-group ">
+                                                    <!-- <p hidden #id>{{displayplot._id}}</p> -->
+                                                    <input type="text" hidden value="{{displayplot._id}}" #id >
+                                                    <input type="text" hidden value="{{displayplot.name}}" #name >
                                                     <button mat-raised-button color="primary"
-                                                    class="btn btn-Delete" (click)="openDialog()">ลบ</button>
+                                                    class="btn btn-Delete" (click)="openDialog(id,name)">ลบ</button>
                                                 </div>
                                             </div>
                                         </ng-container>

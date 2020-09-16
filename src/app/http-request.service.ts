@@ -43,6 +43,7 @@ export class HttpRequestService {
   private GetPlot = 'https://smartflowfarm.info/api3001/plot/';
   private add_plot_plotconfig = 'https://smartflowfarm.info/api3001/combine/add_plot_plotconfig';
   private update_controller_plot = 'https://smartflowfarm.info/api3001/combine/update_controller_plot';
+  private remove_from_user = 'https://smartflowfarm.info/api3001/combine/remove_from_user';
   private getPlotConfig = 'https://smartflowfarm.info/api3001/plotconfig/';
   private UpdatePlotConfig = 'https://smartflowfarm.info/api3001/plotconfig/';
   private Sensordata = 'https://smartflowfarm.info/api3001/sensordata/'
@@ -57,15 +58,15 @@ export class HttpRequestService {
   // private getPlotConfig = 'https://smartflowfarm.info/api3000/plotconfig/';
   // private UpdatePlotConfig = 'https://smartflowfarm.info/api3000/plotconfig/';
 
-  private login_prod = 'https://smartflowfarm.xyz/api3000/user/login';
-  private verify_prod = 'https://smartflowfarm.xyz/api3000/user/verify';
-  private register_pord = 'https://smartflowfarm.xyz/api3000/user/AddUser';
-  private GetUser_pord = 'https://smartflowfarm.xyz/api3000/user/';
-  private GetPlot_pord = 'https://smartflowfarm.xyz/api3000/plot/GetByUser/';
-  private add_plot_plotconfig_prod = 'https://smartflowfarm.xyz/api3000/combine/add_plot_plotconfig';
-  private update_controller_plot_prod = 'https://smartflowfarm.xyz/api3000/combine/update_controller_plot';
-  private getPlotConfig_pord = 'https://smartflowfarm.xyz/api3000/plotconfig/';
-  private UpdatePlotConfig_prod = 'https://smartflowfarm.xyz/api3000/plotconfig/';
+  // private login_prod = 'https://smartflowfarm.xyz/api3000/user/login';
+  // private verify_prod = 'https://smartflowfarm.xyz/api3000/user/verify';
+  // private register_pord = 'https://smartflowfarm.xyz/api3000/user/AddUser';
+  // private GetUser_pord = 'https://smartflowfarm.xyz/api3000/user/';
+  // private GetPlot_pord = 'https://smartflowfarm.xyz/api3000/plot/GetByUser/';
+  // private add_plot_plotconfig_prod = 'https://smartflowfarm.xyz/api3000/combine/add_plot_plotconfig';
+  // private update_controller_plot_prod = 'https://smartflowfarm.xyz/api3000/combine/update_controller_plot';
+  // private getPlotConfig_pord = 'https://smartflowfarm.xyz/api3000/plotconfig/';
+  // private UpdatePlotConfig_prod = 'https://smartflowfarm.xyz/api3000/plotconfig/';
 
   result: any;
 
@@ -135,6 +136,10 @@ export class HttpRequestService {
 
   UpdateControllerAndPlot(postbody: any){
     return this.http.put(this.update_controller_plot,postbody)
+  }
+
+  RemoveFromUser(postbody: any){
+    return this.http.put(this.remove_from_user,postbody)
   }
 
   UpdatePlotConfigPlantSetting(postbody: any){

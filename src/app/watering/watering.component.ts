@@ -14,30 +14,36 @@ export class WateringComponent implements OnInit {
   testdata: any;
   testvalue: any;
   testDate: any;
-  Date: any;
+  Date1: any;
+  Date2: any;
   multiply: any;
 
   typeChart: any;
   dataChart: any;
   optionsChart: any;
-  time1:[
-    
-  ]
+
   constructor(private httpRequestService:HttpRequestService) { }
 
   ngOnInit(): void {
     this.SetVar();
-    this.multiply = 10;
-    let timestamp1 = Date.now() - 3600000*this.multiply;
-    let timestamp2 = Date.now();
-    console.log(timestamp1)
-    console.log(timestamp2)
-    this.httpRequestService.GetSensorDataByIDAndTimeRange(this.controller_id,timestamp1.toString(),timestamp2.toString()).subscribe((result) =>{
-      console.log(result)
+    
+
+  }
+
+  CallGraph(){
+    this.typeChart = null;
+    this.dataChart = null;
+    this.optionsChart = null;
+    //this.multiply = 1;
+    //let timestamp1 = Date.now() - 3600000*this.multiply;
+    //let timestamp2 = Date.now();
+    //console.log(timestamp1)
+    //console.log(timestamp2)
+    this.httpRequestService.GetSensorDataByIDAndTimeRange(this.controller_id,this.Date1.toString(),this.Date2.toString()).subscribe((result) =>{
+      //console.log(result)
       this.SetArray(result);
       this.SetChart();
     })
-
   }
 
   SetChart(){
@@ -80,16 +86,56 @@ export class WateringComponent implements OnInit {
   }
 
   GetDate(DateIn: HTMLInputElement,time1: HTMLInputElement,time2: HTMLInputElement){
-    console.log(time1.value);
-    console.log(time2.value);
-    this.Date = [];
-    var myDate = DateIn.value;
-    this.Date = myDate.split("-");
-    //var newDate = this.one[2]+"/"+this.one[1]+"/"+this.one[0];
-    var newDate = new Date(myDate);
-    //console.log(newDate);
-    //console.log(newDate.getTime());
-    //console.log(Date.value);
+    //console.log("start :"+DateIn.value+": end")
+    //console.log(time1.value < time2.value)
+    if(DateIn.value != "" && time1.value != "nan" && time2.value != "nan"){
+      //console.log((parseInt(time1.value) < parseInt(time2.value)))
+      //console.log(time2.value == "0")
+      if( (parseInt(time1.value) < parseInt(time2.value)) || (time2.value == "0") ){
+        this.Date1 = [];
+        this.Date2 = [];
+
+        let time1s = this.makeHour(time1.value);
+        let time2s = this.makeHour(time2.value);
+
+        this.Date1 = DateIn.value+"T"+time1s;
+        this.Date2 = DateIn.value+"T"+time2s;
+        
+        var newDate1 = new Date(this.Date1);
+        var newDate2 = new Date(this.Date2);
+
+        this.Date1 = newDate1.getTime();
+        this.Date2 = newDate2.getTime();
+        
+        this.multiply = parseInt(time2.value) - parseInt(time1.value);
+
+        if(time2.value == "0" ){
+          this.Date2 += 86400000;
+          this.multiply = (this.Date2 - this.Date1)/3600000;
+        }
+
+        //console.log(new Date(this.Date1));
+        //console.log(this.Date1);
+
+        //console.log(new Date(this.Date2));
+        //console.log(this.Date2);
+
+        //console.log(this.multiply);
+
+        this.CallGraph();
+
+      }
+      else{
+        alert("กรุณาใส่เวลาให้ถูกต้อง 2");
+      }
+
+    }
+    else if(DateIn.value == ""){
+      alert("กรุณาใส่วันที่");
+    }
+    else if(time1.value >= time2.value || time1.value == "nan" || time2.value == "nan"){
+      alert("กรุณาใส่เวลาให้ถูกต้อง 1");
+    }
   }
 
   SetVar(){
@@ -129,6 +175,16 @@ export class WateringComponent implements OnInit {
     //console.log(m)
     
     return hr + ':' + m.substr(-2)
+  }
+
+  makeHour(hour: any){
+    let hourformat;
+    if(hour < 10){
+      hourformat = "0"+hour+":00:00";
+    }else{
+      hourformat = hour+":00:00";
+    }
+    return hourformat;
   }
 
 }
