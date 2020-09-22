@@ -30,20 +30,25 @@ export class LoginComponent implements OnInit {
       "password": password.value
     }
 
-    this.httpRequestService.Login(this.postbody).subscribe(result =>{
-      const status = JSON.stringify(result['status']);
-      if(status == "\"success\""){
-        const str = JSON.stringify(result['token']);
-        localStorage.setItem('token',str);
-        this.router.navigate(['/plot']);
-      }
-      else if(status == "\"wrong password\""){
+    if(this.postbody.email != "" && this.postbody.password != ""){
+      this.httpRequestService.Login(this.postbody).subscribe(result =>{
+        const status = JSON.stringify(result['status']);
+        if(status == "\"success\""){
+          const str = JSON.stringify(result['token']);
+          localStorage.setItem('token',str);
+          this.router.navigate(['/plot']);
+        }
+        else if(status == "\"wrong password\""){
+          alert("wrong password");
+        }
+        else if(status == "\"User does not exist\""){
+          alert("User does not exist");
+        }
+      }) 
+    }else{
+      alert("ข้อมูลไม่ครบ");
+    }
 
-      }
-      else if(status == "\"User does not exist\""){
-
-      }
-    }) 
 
     
   }

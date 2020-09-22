@@ -69,17 +69,17 @@ export class WateringComponent implements OnInit {
           }
         }], 
         xAxes: [{
-          ticks: {
-             userCallback: function(item, index) {
-                if (!(index % (x*120))) return item;
-             },
-             autoSkip: false
-          }
+          // ticks: {
+          //    userCallback: function(item, index) {
+          //       if (!(index % (x*1))) return item;
+          //    },
+          //    autoSkip: false
+          // }
        }]
       },
       elements: {
         point:{
-            radius: 0
+            radius: 2
         }
       }
     };
