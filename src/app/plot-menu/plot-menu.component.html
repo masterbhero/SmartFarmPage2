@@ -37,14 +37,14 @@
                 <table class="table table-secondary">
                     <thead>
                         <tr>
-                            <th scope="col">วันที่ปลูก</th>
+                            <th scope="col">วันที่ปลูก/เก็บเกี่ยวครั้งก่อน</th>
                             <th scope="col">กำหนดเก็บ</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>{{ CreatedDate | date:'d/M/yyyy' }}   </td>
-                            <td>30/1/2562</td>
+                            <td>{{ Lastet_Harvest | date:'d/M/yyyy' }}</td>
+                            <td>{{ HarvestDay | date:'d/M/yyyy' }}</td>
                         </tr>
                 </table>
             </div>

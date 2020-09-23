@@ -8,33 +8,41 @@
             </div>
             <br><br><br><br>
 
-            <form class="form-horizontal" method="post" action="#">
+            <div class="form-horizontal">
+
                 <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-2 col-form-label ">ชื่อ</label>
+                    <label for="inputName" class="col-sm-2 col-form-label ">ชื่อ</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="inputName" placeholder="ชื่อ">
+                        <input type="text" class="form-control" id="inputName" placeholder="ชื่อ" value="{{Udata.firstname}}" #firstname>
                     </div>
                 </div><br>
 
                 <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-2 col-form-label ">สกุล</label>
+                    <label for="inputlastName" class="col-sm-2 col-form-label ">สกุล</label >
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="inputLastname" placeholder="นามสกุล">
+                        <input type="text" class="form-control" id="inputLastname" placeholder="สกุล" value="{{Udata.lastname}}" #lastname> 
+                    </div>
+                </div><br>
+
+                <div class="form-group row">
+                    <label for="inputAllowEdit" class="col-sm-2 col-form-label ">AllowEdit</label >
+                    <div class="col-sm-10">
+                        <input  type="checkbox"   [(ngModel)]="AllowEdit"  [ngModelOptions]="{standalone: true}"/>
                     </div>
                 </div><br>
 
                 <div class="row d-flex justify-content-center">
                     <div class="row">
                         <div class="col-5">
-                            <button mat-raised-button color="primary" class="btn-Menu">ย้อนกลับ</button>
+                            <button mat-raised-button routerLink="/plot" color="primary" class="btn-Menu">ย้อนกลับ</button>
                         </div>
                         <div class="col-5">
-                            <button mat-raised-button color="primary" class="btn-login">ยืนยัน</button>
+                            <button mat-raised-button  color="primary" class="btn-login" (click)="UpdateUser(firstname,lastname)" >ยืนยัน</button>
                         </div>
                     </div>
                 </div>
 
-            </form>
+            </div>
 
             <br><br>
 

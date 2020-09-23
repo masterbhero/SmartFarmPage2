@@ -39,6 +39,7 @@ export class HttpRequestService {
   private login = 'https://smartflowfarm.info/api3001/user/login';
   private verify = 'https://smartflowfarm.info/api3001/user/verify';
   private register = 'https://smartflowfarm.info/api3001/user/AddUser';
+  private user = 'https://smartflowfarm.info/api3001/user/';
   private GetUser = 'https://smartflowfarm.info/api3001/user/GetUserAndVerify/';
   private GetPlot = 'https://smartflowfarm.info/api3001/plot/';
   private add_plot_plotconfig = 'https://smartflowfarm.info/api3001/combine/add_plot_plotconfig';
@@ -46,7 +47,7 @@ export class HttpRequestService {
   private remove_from_user = 'https://smartflowfarm.info/api3001/combine/remove_from_user';
   private getPlotConfig = 'https://smartflowfarm.info/api3001/plotconfig/';
   private UpdatePlotConfig = 'https://smartflowfarm.info/api3001/plotconfig/';
-  private Sensordata = 'https://smartflowfarm.info/api3001/sensordata/'
+  private Sensordata = 'https://smartflowfarm.info/api3001/sensordata/';
 
   // private login = 'https://smartflowfarm.info/api3000/user/login';
   // private verify = 'https://smartflowfarm.info/api3000/user/verify';
@@ -106,6 +107,14 @@ export class HttpRequestService {
     return this.http.get(this.GetUser,options)
   }
 
+  GetUserByID(id:string){
+    return this.http.get(this.user+"GetUserByID/"+id);
+  }
+
+  UpdateUser(postbody:any){
+    return this.http.put(this.user+"UpdateUser",postbody)
+  }
+
   GetPlotByUser(id:string){
     return this.http.get(this.GetPlot+"GetByUser/"+id);
   }
@@ -128,6 +137,10 @@ export class HttpRequestService {
 
   GetSensorDataByIDAndTimeRange(id:string,time1:string,time2:string){
     return this.http.get(this.Sensordata+"GetDataByIDAndTimeRange/"+id+"/"+time1+"/"+time2);
+  }
+
+  GetLastedSensordataByID(Controller_Id:string){
+    return this.http.get(this.Sensordata+"GetLastedRecordByID/"+Controller_Id);
   }
 
   AddPlotAndPlotConfig(postbody: any){

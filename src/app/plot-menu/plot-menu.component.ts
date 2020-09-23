@@ -21,6 +21,8 @@ export class PlotMenuComponent implements OnInit {
   plot_name: any;
   CurrentDate: any;
   CreatedDate:any;
+  HarvestDay:any;
+  Lastet_Harvest:any;
   constructor(private socketIoService:SocketIoService,private http:HttpClient,private httpRequestService:HttpRequestService) {
 
   }
@@ -41,17 +43,30 @@ export class PlotMenuComponent implements OnInit {
         this.plot_name = result['name'];
         this.user_id = result['User_id'];
         this.CreatedDate = result['CreatedDate']
+        
         //console.log(this.user_id)
-        this.socketIoService.listen('chat message',this.user_id).subscribe((data) => {
-        //this.socketIoService.listen('join room',this.user_id).subscribe((data) => {
-          //console.log(data)
-          if(data['sender'] == this.url[1]){  
-            this.light = data['light'];
-            this.temp = data['temp'];    
-            this.dirt_moisure = data['dirt'];
-            this.air_moisure = data['air'];
-            this.CurrentDate = new Date();
-          }
+        this.httpRequestService.GetPlotConfigByPlotID(result['_id']).subscribe((result) =>{
+          //console.log(result)
+          this.Lastet_Harvest = result['Lastest_harvest_date'];
+          this.HarvestDay = new Date(result['Lastest_harvest_date']).getTime() + (result['harvest_day']*24*60*60*1000);
+          this.httpRequestService.GetLastedSensordataByID(this.controller_id).subscribe((result) => {
+            this.light = result[0]['light'];
+            this.temp = result[0]['temp'];    
+            this.dirt_moisure = result[0]['dirthumid'];
+            this.air_moisure = result[0]['airhumid'];
+            this.CurrentDate = result[0]['CreatedDate']; 
+            this.socketIoService.listen('chat message',this.user_id).subscribe((data) => {
+              //this.socketIoService.listen('join room',this.user_id).subscribe((data) => {
+                //console.log(data)
+                if(data['sender'] == this.url[1]){  
+                  this.light = data['light'];
+                  this.temp = data['temp'];    
+                  this.dirt_moisure = data['dirt'];
+                  this.air_moisure = data['air'];
+                  this.CurrentDate = new Date();
+                }
+              })          
+          })
         })
     })
   }

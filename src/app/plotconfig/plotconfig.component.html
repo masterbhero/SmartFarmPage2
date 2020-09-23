@@ -9,6 +9,7 @@
             <br><br><br><br>
 
             <div class="container">
+
                 <div class="row justify-content-around">
                     <div style="margin: auto;">
                         <label for="inputMoisture">ชื่อ</label>
@@ -85,30 +86,31 @@
                     </div>
                 </div>
                 <br><br>
-            </div>
 
-                <div class="d-flex justify-content-start">
-                    <div class="col-4">
-                        &nbsp;&nbsp; &nbsp;&nbsp;
-                        <label for="inputMoisture">คำแนะนำ</label>
+                <div class="row justify-content-around">
+                    <div class="col-2">
+                        <label for="input">จำนวนวันที่ใช้ปลูก</label>
                     </div>
-                    <div class="col-3">
+
+                    <div class="col-2">
+                        <input type="text" class="form-control" id="HarvestDay" value={{PlotConfig.harvest_day}} #HarvestDay>
+                    </div>
+
+                    <div class="col-2">
+                        <label for="inputMoisture" style="text-align: right;">คำแนะนำ</label>
+                    </div>
+
+                    <div class="col-2">
                         <select class="form-control" (change)="onChange(PlantsSelect.value)" #PlantsSelect>
                             <option *ngFor="let c of Plants" [ngValue]="c"> {{c.name}} </option>
                         </select>
                     </div>
-                    &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
-                    &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
-                    <div class="col-2">
-                        <label for="input">จำนวนวันที่ใช้ปลูก</label>
-                    </div>
-                    <div class="col-1">
-                        <label for="inputdate">30</label>
-                    </div>
-                    <div class="col-1">
-                        <label for="inputdate">วัน</label>
-                    </div>
+
                 </div>
+
+            </div>
+
+
 
 
 
@@ -121,7 +123,7 @@
                                     <button mat-raised-button color="primary" class="btn-Delete" [routerLink]="['/plotmenu',{id: plot_id}]">ยกเลิก</button>
                                 </div>
                                 <div class="col-6">
-                                    <button mat-raised-button color="primary" class="btn-login" (click)=UpdatePlotConfigPlantSetting(name,StageOneDate,StageOneDirthumid,StageOnelight,StageTwoDate,StageTwoDirthumid,StageTwolight,StageThreeDate,StageThreeDirthumid,StageThreelight)>ตกลง</button>
+                                    <button mat-raised-button color="primary" class="btn-login" (click)=UpdatePlotConfigPlantSetting(name,StageOneDate,StageOneDirthumid,StageOnelight,StageTwoDate,StageTwoDirthumid,StageTwolight,StageThreeDate,StageThreeDirthumid,StageThreelight,HarvestDay)>ตกลง</button>
                                 </div>
                             </div>
                         </div>

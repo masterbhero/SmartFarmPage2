@@ -42,7 +42,8 @@ export class PlotconfigComponent implements OnInit {
   UpdatePlotConfigPlantSetting(name:HTMLInputElement,
     StageOneDate:HTMLInputElement,StageOneDirthumid:HTMLInputElement,StageOnelight:HTMLInputElement,
     StageTwoDate:HTMLInputElement,StageTwoDirthumid:HTMLInputElement,StageTwolight:HTMLInputElement,
-    StageThreeDate:HTMLInputElement,StageThreeDirthumid:HTMLInputElement,StageThreelight:HTMLInputElement){
+    StageThreeDate:HTMLInputElement,StageThreeDirthumid:HTMLInputElement,StageThreelight:HTMLInputElement,
+    HarvestDay:HTMLInputElement){
 
     if(name.value != "" && StageOneDate.value != "" && StageOneDirthumid.value != "" && StageOnelight.value != ""
                         && StageTwoDate.value != "" && StageTwoDirthumid.value != "" && StageTwolight.value != ""
@@ -60,6 +61,7 @@ export class PlotconfigComponent implements OnInit {
           "StageThreeDate":parseInt(StageThreeDate.value).toString(),
           "StageThreeDirthumid":parseInt(StageThreeDirthumid.value).toString(),
           "StageThreelight":parseInt(StageThreelight.value).toString(),
+          "harvest_day":parseInt(HarvestDay.value).toString(),
           "id":this.PlotConfig['_id']
         }
         //console.log(this.postbody)
