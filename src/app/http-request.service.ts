@@ -45,9 +45,10 @@ export class HttpRequestService {
   private add_plot_plotconfig = 'https://smartflowfarm.info/api3001/combine/add_plot_plotconfig';
   private update_controller_plot = 'https://smartflowfarm.info/api3001/combine/update_controller_plot';
   private remove_from_user = 'https://smartflowfarm.info/api3001/combine/remove_from_user';
-  private getPlotConfig = 'https://smartflowfarm.info/api3001/plotconfig/';
+  private PlotConfig = 'https://smartflowfarm.info/api3001/plotconfig/';
   private UpdatePlotConfig = 'https://smartflowfarm.info/api3001/plotconfig/';
   private Sensordata = 'https://smartflowfarm.info/api3001/sensordata/';
+  private Plant = 'https://smartflowfarm.info/api3001/plant/';
 
   // private login = 'https://smartflowfarm.info/api3000/user/login';
   // private verify = 'https://smartflowfarm.info/api3000/user/verify';
@@ -111,10 +112,6 @@ export class HttpRequestService {
     return this.http.get(this.user+"GetUserByID/"+id);
   }
 
-  UpdateUser(postbody:any){
-    return this.http.put(this.user+"UpdateUser",postbody)
-  }
-
   GetPlotByUser(id:string){
     return this.http.get(this.GetPlot+"GetByUser/"+id);
   }
@@ -124,9 +121,13 @@ export class HttpRequestService {
   }
 
   GetPlotConfigByPlotID(id:string){
-    return this.http.get(this.getPlotConfig+"GetByPlotID/"+id);
+    return this.http.get(this.PlotConfig+"GetByPlotID/"+id);
   }
 
+  GetAllPlant(){
+    return this.http.get(this.Plant+"GetAll/");
+  }
+  
   GetSensorDataByID(id:string){
     return this.http.get(this.Sensordata+"GetDataByID/"+id);
   }
@@ -147,6 +148,14 @@ export class HttpRequestService {
     return this.http.post(this.add_plot_plotconfig, postbody)
   }
 
+  UpdateWaterpumpStatus(postbody:any){
+    return this.http.put(this.PlotConfig+"Update_Waterpump_status/",postbody)
+  }
+
+  UpdateSlanStatus(postbody:any){
+    return this.http.put(this.PlotConfig+"Update_Slan_status/",postbody)
+  }
+
   UpdateControllerAndPlot(postbody: any){
     return this.http.put(this.update_controller_plot,postbody)
   }
@@ -158,4 +167,17 @@ export class HttpRequestService {
   UpdatePlotConfigPlantSetting(postbody: any){
     return this.http.put(this.UpdatePlotConfig+"UpdatePlotConfigPlantSetting",postbody)
   }
+
+  UpdateUser(postbody:any){
+    return this.http.put(this.user+"UpdateUser",postbody)
+  }
+
+  Harvest(postbody:any){
+    return this.http.put(this.PlotConfig+"Harvest/",postbody)
+  }
+
+  UpdateFertConfig(postbody:any){
+    return this.http.put(this.PlotConfig+"Update_fert_config/",postbody)
+  }
+
 }

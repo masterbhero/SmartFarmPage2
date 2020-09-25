@@ -30,7 +30,7 @@ export class EditComponent implements OnInit {
       // console.log(result[0]);
       this.Udata = result[0];
       this.AllowEdit = Boolean(JSON.parse(result[0]["AllowEdit"]));
-      console.log(this.AllowEdit)
+      //console.log(this.AllowEdit)
     })
   }
 

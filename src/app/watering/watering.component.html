@@ -3,10 +3,20 @@
     <div class="card border-0 shadow my-5" style="background-color: #ffffff;">
         <div class="card-body p-5">
 
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-12">
+                        <button [routerLink]="['/plotmenu',{id: plot_id}]" style="text-align: left;" mat-raised-button color="primary" class="btn-Menu">ย้อนกลับ</button>
+                </div>
+            </div>
+
             <div style="text-align:center">
                 <div class="text-dark" style="font-size: 30px;">การรดน้ำ</div>
             </div>
-            <br><br><br>
+            <br><br>
+
+            <div class="row d-flex justify-content-center">
+
+            </div>
 
             <div style="text-align:center">
                 <div class="card-body">
@@ -78,6 +88,9 @@
                                 </select>
                             </div>
                         </div>
+                        <div class="col-md-3">
+                            <button  mat-raised-button color="primary" class="btn-login" (click)="GetDate(Date,time1,time2)" style="align-self: center;">ตกลง</button>
+                        </div>
                     </div>
 
                     <br><br><br>
@@ -90,18 +103,6 @@
                         </div>
                     </div>
                     
-                    <div class="row d-flex justify-content-center">
-                        <div class="col-md-3">
-                            <div class="form-group ">
-                                <button [routerLink]="['/plotmenu',{id: plot_id}]" mat-raised-button color="primary" class="btn-Menu">ย้อนกลับ</button>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="form-group ">
-                                <button  mat-raised-button color="primary" class="btn-login" (click)="GetDate(Date,time1,time2)">ตกลง</button>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>

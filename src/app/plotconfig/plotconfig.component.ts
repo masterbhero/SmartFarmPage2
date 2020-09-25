@@ -19,11 +19,12 @@ export class PlotconfigComponent implements OnInit {
 
   ngOnInit(): void {
     this.Plants = [
-      {id: 1, name: "เลือกชนิดผัก"},
-      {id: 2, name: "ผักบุ้ง"},
-      {id: 3, name: "คะน้า"},
-      {id: 4, name: "กะหล่ำปลี"},
-      {id: 5, name: "กวางตุ้ง"}
+      // {id: 1, name: "เลือกชนิดผัก"},
+      // {id: 2, name: "ผักบุ้ง"},
+      // {id: 3, name: "คะน้า"},
+      // {id: 4, name: "กะหล่ำปลี"},
+      // {id: 5, name: "กวางตุ้ง"}
+      {id:1,name:"nan"}
     ];
     this.PlotConfig = {
       name:"",
@@ -36,6 +37,14 @@ export class PlotconfigComponent implements OnInit {
     this.httpRequestService.GetPlotConfigByPlotID(this.plot_id).subscribe(result =>{
       //console.log(result); 
       this.PlotConfig = result;
+      this.httpRequestService.GetAllPlant().subscribe((result) => {
+        this.Plants = result;
+        let Placeholder = {
+          name:"เลือกพืช"
+        }
+        this.Plants.unshift(Placeholder);
+        //console.log(this.Plants);
+      })
     })
   }
 
@@ -66,7 +75,7 @@ export class PlotconfigComponent implements OnInit {
         }
         //console.log(this.postbody)
         this.httpRequestService.UpdatePlotConfigPlantSetting(this.postbody).subscribe(result => {
-          console.log(result);
+          //console.log(result);
           this.router.navigate(['/plotmenu',{id:this.plot_id}]);
         })
       }
@@ -82,8 +91,26 @@ export class PlotconfigComponent implements OnInit {
   //devices = 'one two three'.split(' ');
   //selectedDevice = 'two';
   onChange(newValue) {
-    console.log(newValue);
-    //this.selectedDevice = newValue;
-    // ... do other stuff here ...
+    //console.log(newValue);
+    if(newValue != "เลือกพืช"){
+      let RightPlant;
+      for (let key in this.Plants) {
+        let value = this.Plants[key];
+        if(value.name == newValue){
+          //console.log(value)
+          RightPlant = value;
+        }
+      }
+      this.PlotConfig['StageOneDate']  =  RightPlant['StageOneDate']
+      this.PlotConfig['StageOneDirthumid']  =  RightPlant['StageOneDirthumid']
+      this.PlotConfig['StageOnelight']  =  RightPlant['StageOnelight']
+      this.PlotConfig['StageTwoDate'] =  RightPlant['StageTwoDate']
+      this.PlotConfig['StageTwoDirthumid']  =  RightPlant['StageTwoDirthumid']
+      this.PlotConfig['StageTwolight']  =  RightPlant['StageTwolight']
+      this.PlotConfig['StageThreeDate'] =  RightPlant['StageThreeDate']
+      this.PlotConfig['StageThreeDirthumid']  =  RightPlant['StageThreeDirthumid']
+      this.PlotConfig['StageThreelight']  =  RightPlant['StageThreelight']
+      this.PlotConfig['harvest_day']  =  RightPlant['harvest_day']
+    }
   }
 }

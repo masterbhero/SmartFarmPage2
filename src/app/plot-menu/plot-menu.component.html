@@ -8,6 +8,14 @@
                         <button [routerLink]="['/plotconfig',{id: plot_id}]" mat-raised-button color="primary" class="btn-Menu">ตั้งค่าแปลง</button>
                         <br><br>
                     </div>
+                    <div style="float: right;">
+                        <button mat-raised-button color="primary" class="btn-Menu" (click)="Harvest()">เก็บเกี่ยว</button>
+                        <br><br>
+                    </div>
+                    <div style="float: left;">
+                        <button routerLink="/plot" mat-raised-button color="primary" class="btn-Menu">ย้อนกลับ</button>
+                        <br><br>
+                    </div>
                 </div>
             </div><br>
 
@@ -55,7 +63,6 @@
                         <tr>
                             <th scope="col"></th>
                             <th scope="col ">สถานะ</th>
-                            <th scope="col">น้ำ/ปุ๋ย</th>
                             <th scope="col">หยุด</th>
                             <th scope="col">ทำงาน</th>
                         </tr>
@@ -63,13 +70,12 @@
                     <tbody>
                         <tr>
                             <td>ปั้มน้ำ</td>
-                            <td>ทำงาน</td>
-                            <td>ปุ๋ย</td>
-                            <td><button mat-raised-button color="primary" class="btn-Delete circle"></button></td>
-                            <td><button mat-raised-button color="primary" class="btn-login circle"></button></td>
+                            <td>{{waterpump_status}}</td>
+                            <td><button mat-raised-button color="primary" class="btn-Delete circle" (click)=TurnOffWaterpump()></button></td>
+                            <td><button mat-raised-button color="primary" class="btn-login circle" (click)=TurnOnWaterpump()></button></td>
                             <td>
 
-                                <button routerLink="/fertconfig" mat-raised-button color="primary" class="btn-Menu">ตั้งค่าปุ๋ย</button></td>
+                                <button [routerLink]="['/fertconfig',{id: plot_id}]" mat-raised-button color="primary" class="btn-Menu">ตั้งค่าปุ๋ย</button></td>
                             <td> <button [routerLink]="['/watering',{id: plot_id,controller: controller_id}]" mat-raised-button color="primary" class="btn-Menu">ประวัติการให้น้ำ</button>
                             </td>
                         </tr>
@@ -90,20 +96,20 @@
                     <tbody>
                         <tr>
                             <td>แสง</td>
-                            <td>ปิด</td>
-                            <td><button mat-raised-button color="primary" class="btn-Delete circle"></button></td>
-                            <td><button mat-raised-button color="primary" class="btn-login circle"></button></td>
+                            <td>{{slan_status}}</td>
+                            <td><button mat-raised-button color="primary" class="btn-Delete circle" (click)=TurnOffSlan()></button></td>
+                            <td><button mat-raised-button color="primary" class="btn-login circle" (click)=TurnOnSlan()></button></td>
                         </tr>
                     </tbody>
                 </table>
             </div>
 
-            <div style="float: right;">
+            <!-- <div style="float: right;">
                 <div style="float: right;">
                     <button routerLink="/plot" mat-raised-button color="primary" class="btn-Menu">ย้อนกลับ</button><br>
                 </div>
             </div>
-            <br><br>
+            <br><br> -->
 
             <!-- <div style="height: 700px"></div>
             <p class="lead mb-0">You've reached the end!</p> -->

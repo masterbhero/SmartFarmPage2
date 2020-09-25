@@ -14,6 +14,7 @@ export class WateringComponent implements OnInit {
   testdata: any;
   testvalue: any;
   testDate: any;
+  watering: any;
   Date1: any;
   Date2: any;
   multiply: any;
@@ -50,13 +51,20 @@ export class WateringComponent implements OnInit {
     var x = this.multiply;
     this.typeChart = 'line';   ////// สามารถกำหนดเป็น 'line','bar','radar','pie','doughnut','polarArea','bubble','scatter'
     this.dataChart = {
+      backgroundColor: "transparent",
       labels: this.testDate,
       datasets: [
         {
-          label: "ความชื้น",
+          label: "ความแห้ง",
           data: this.testvalue,
           borderColor: "#34c9eb",
-          backgroundColor: "#a8e0ed",
+          //backgroundColor: "rgb(255,230, 255)",
+        },
+        {
+          label: "การรดน้ำ",
+          data: this.watering,
+          borderColor: "#ff0000",
+          //backgroundColor: "#a8e0ed",
         }
       ]
     };
@@ -148,13 +156,17 @@ export class WateringComponent implements OnInit {
   }
 
   SetArray(RawData){
+    //console.log(RawData)
     this.testvalue = [];
     this.testDate = [];
+    this.watering = [];
     this.testdata = RawData;
     for (var i = 0; i < Object.keys(this.testdata).length; i++) {
       var counter = this.testdata[i];
       //console.log(counter);
       this.testvalue.push(counter.dirthumid); 
+      //this.testvalue.push((parseInt(counter.dirthumid)+0)*(0-100)/(1023-0)+100); 	
+      this.watering.push(parseInt(counter.waterpump)*100);
       this.testDate.push(this.convert(parseInt(counter.CreatedDate)));     
       //console.log(counter.value);
       //console.log(this.convert(counter.CreatedDate));
