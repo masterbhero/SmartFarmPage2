@@ -1,0 +1,40 @@
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  
+  }
+  
+  .example-button-row button,
+  .example-button-row a {
+  margin-right: 8px;
+  
+}
+ 
+.main-div{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+.btn-login{
+    background: #26fa09;
+}
+
+.btn-login:hover { 
+    background: #26aa09; 
+}
+
+.btn-register{
+    background: #3f51b5;
+}
+
+.btn-register:hover { 
+    background: #352a7a; 
+}

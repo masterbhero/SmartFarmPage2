@@ -56,5 +56,9 @@ export class SocketIoService {
 
   }
 
+  Status(){
+    return this.socket.status();
+  }
+
 }
  

@@ -1,0 +1,41 @@
+<div class="main-div">
+    <mat-card >
+      <div class="container">
+        
+        <div class="row">
+            <div class="col-12" style="text-align: center;">
+                <label style=" font-size: 30px;">Admin</label>
+            </div>
+          </div>
+
+        <div class="row">
+          <div class="col-12">
+            <form class="example-form">
+              <mat-form-field class="example-full-width">
+                <mat-label>Username</mat-label>
+                <input matInput placeholder="Username" value="" #username>
+              </mat-form-field>
+            </form>
+          </div>
+        </div>
+  
+        <div class="row">
+          <div class="col-12">
+            <form class="example-form">
+              <mat-form-field class="example-full-width">
+                <mat-label>Password</mat-label>
+                <input matInput type="password" placeholder="Password" value="" #password>
+              </mat-form-field>
+            </form>
+          </div>
+        </div>
+  
+        <div class="row">
+          <div class="col-6">
+            <button mat-raised-button color="primary" class="btn-login" (click)="LogIn(username,password)">Login</button>
+          </div>
+        </div>
+  
+      </div>
+    </mat-card>
+  </div>

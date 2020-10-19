@@ -18,7 +18,7 @@ export class ErrorInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     return next.handle(request)
     .pipe(
-      retry(10),
+      retry(30),
       catchError((error: HttpErrorResponse) => {
           let errorMessage = '';
           if (error.error instanceof ErrorEvent) {
@@ -30,9 +30,13 @@ export class ErrorInterceptor implements HttpInterceptor {
           }
           //console.log(errorMessage);
           //if(error.status == 403){
-          if(errorMessage == "Error Status: 403 Message: Http failure response for http://localhost:3000/user/verify: 403 Forbidden"){
+          console.log(errorMessage)
+          if(errorMessage == "Error Status: 403 Message: Http failure response for https://smartflowfarm.info/api3001/user/GetUserAndVerify/: 403 Forbidden"){
             localStorage.removeItem('token');
             this.router.navigate(['/login']);
+          }else if(errorMessage == "Error Status: 403 Message: Http failure response for https://smartflowfarm.info/api3001/admin/GetAdminAndVerify: 403 Forbidden"){
+            localStorage.removeItem('token_admin');
+            this.router.navigate(['/admin-login']);
           }
           return throwError(errorMessage);
       })

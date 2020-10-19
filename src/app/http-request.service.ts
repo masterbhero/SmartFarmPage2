@@ -2,6 +2,7 @@ import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { post } from 'jquery';
 
 class Login {
   constructor(
@@ -36,6 +37,7 @@ export class HttpRequestService {
   // private getPlotConfig = 'https://smartflowfarm.xyz/api3000/plotconfig/';
   // private UpdatePlotConfig = 'https://smartflowfarm.xyz/api3000/plotconfig/';
 
+  private admin = 'https://smartflowfarm.info/api3001/admin/';
   private login = 'https://smartflowfarm.info/api3001/user/login';
   private verify = 'https://smartflowfarm.info/api3001/user/verify';
   private register = 'https://smartflowfarm.info/api3001/user/AddUser';
@@ -49,6 +51,8 @@ export class HttpRequestService {
   private UpdatePlotConfig = 'https://smartflowfarm.info/api3001/plotconfig/';
   private Sensordata = 'https://smartflowfarm.info/api3001/sensordata/';
   private Plant = 'https://smartflowfarm.info/api3001/plant/';
+  private LoginLog = 'https://smartflowfarm.info/api3001/login';
+  private fert_log = 'https://smartflowfarm.info/api3001/fert';
 
   // private login = 'https://smartflowfarm.info/api3000/user/login';
   // private verify = 'https://smartflowfarm.info/api3000/user/verify';
@@ -81,6 +85,13 @@ export class HttpRequestService {
     return this.http.post(this.login, postbody);
   }
 
+  LoginAdmin(postbody: any){
+    // this.http.post(this.login, postbody).subscribe(result => {
+    //   this.result = result;    
+    // });
+    return this.http.post(this.admin+"login", postbody);
+  }
+
   Verify() {
     let Header = new HttpHeaders({'Authorization': 'Bearer '+localStorage.getItem('token')});
     let options = { headers: Header };
@@ -90,9 +101,23 @@ export class HttpRequestService {
     return this.http.post(this.verify,null,options);
   }
 
+  VerifyAdmin() {
+    let Header = new HttpHeaders({'Authorization': 'Bearer '+localStorage.getItem('token_admin')});
+    let options = { headers: Header };
+    // this.http.post(this.verify,null,options).subscribe(result => {
+    //   this.result = result
+    // });
+    return this.http.post(this.admin+"/",null,options);
+  }
+
   LogOut(){
     localStorage.removeItem('token');
     this.router.navigate(['/login']);
+  }
+
+  LogOutAdmin(){
+    localStorage.removeItem('token_admin');
+    this.router.navigate(['/admin-login']);
   }
 
   Register(postbody: any){
@@ -102,14 +127,40 @@ export class HttpRequestService {
     return this.http.post(this.register, postbody);
   }
 
+  AddLoginLog(postbody:any){
+    return this.http.post(this.LoginLog+"/Addlogin",postbody)
+  }
+
+  GetAllActiveUser(){
+    return this.http.get(this.user+"GetActive");
+  }
+
+  GetFertHistory(id:String){
+    return this.http.get(this.fert_log+"/GetByPlotconfig_id/"+id);
+  }
+
+  GetAllInactiveUser(){
+    return this.http.get(this.user+"GetInactive");
+  }
+
   GetUserData(){
     let Header = new HttpHeaders({'Authorization': 'Bearer '+localStorage.getItem('token')});
     let options = { headers: Header };
     return this.http.get(this.GetUser,options)
   }
 
+  GetAdminData(){
+    let Header = new HttpHeaders({'Authorization': 'Bearer '+localStorage.getItem('token_admin')});
+    let options = { headers: Header };
+    return this.http.get(this.admin+"GetAdminAndVerify",options)
+  }
+
   GetUserByID(id:string){
     return this.http.get(this.user+"GetUserByID/"+id);
+  }
+
+  GetPublicIP(){
+    return this.http.get("https://api.ipify.org/?format=json");  
   }
 
   GetPlotByUser(id:string){
@@ -127,7 +178,15 @@ export class HttpRequestService {
   GetAllPlant(){
     return this.http.get(this.Plant+"GetAll/");
   }
+
+  GetAllActivePlant(){
+    return this.http.get(this.Plant+"GetAllActive/");
+  }
   
+  GetAllInactivePlant(){
+    return this.http.get(this.Plant+"GetAllInactive/");
+  }
+
   GetSensorDataByID(id:string){
     return this.http.get(this.Sensordata+"GetDataByID/"+id);
   }
@@ -144,40 +203,72 @@ export class HttpRequestService {
     return this.http.get(this.Sensordata+"GetLastedRecordByID/"+Controller_Id);
   }
 
+  GetPlantByID(id:string){
+    return this.http.get(this.Plant+"GetByID/"+id);
+  }
+
   AddPlotAndPlotConfig(postbody: any){
-    return this.http.post(this.add_plot_plotconfig, postbody)
+    return this.http.post(this.add_plot_plotconfig, postbody);
+  }
+
+  AddPlant(postbody: any){
+    return this.http.post(this.Plant+"AddPlants/",postbody);
   }
 
   UpdateWaterpumpStatus(postbody:any){
-    return this.http.put(this.PlotConfig+"Update_Waterpump_status/",postbody)
+    return this.http.put(this.PlotConfig+"Update_Waterpump_status/",postbody);
   }
 
   UpdateSlanStatus(postbody:any){
-    return this.http.put(this.PlotConfig+"Update_Slan_status/",postbody)
+    return this.http.put(this.PlotConfig+"Update_Slan_status/",postbody);
   }
 
   UpdateControllerAndPlot(postbody: any){
-    return this.http.put(this.update_controller_plot,postbody)
+    return this.http.put(this.update_controller_plot,postbody);
   }
 
   RemoveFromUser(postbody: any){
-    return this.http.put(this.remove_from_user,postbody)
+    return this.http.put(this.remove_from_user,postbody);
   }
 
   UpdatePlotConfigPlantSetting(postbody: any){
-    return this.http.put(this.UpdatePlotConfig+"UpdatePlotConfigPlantSetting",postbody)
+    return this.http.put(this.UpdatePlotConfig+"UpdatePlotConfigPlantSetting",postbody);
   }
 
   UpdateUser(postbody:any){
-    return this.http.put(this.user+"UpdateUser",postbody)
+    return this.http.put(this.user+"UpdateUser",postbody);
   }
 
   Harvest(postbody:any){
-    return this.http.put(this.PlotConfig+"Harvest/",postbody)
+    return this.http.put(this.PlotConfig+"Harvest/",postbody);
   }
 
   UpdateFertConfig(postbody:any){
-    return this.http.put(this.PlotConfig+"Update_fert_config/",postbody)
+    return this.http.put(this.PlotConfig+"Update_fert_config/",postbody);
+  }
+
+  SetUserInactive(postbody:any){
+    return this.http.put(this.user+"InactiveUser",postbody);
+  }
+
+  SetUserActive(postbody:any){
+    return this.http.put(this.user+"ActiveUser",postbody);
+  }
+
+  SetPlantInactive(postbody:any){
+    return this.http.put(this.Plant+"/InactivePlant",postbody);
+  }
+
+  SetPlantActive(postbody:any){
+    return this.http.put(this.Plant+"/ActivePlant",postbody);
+  }
+
+  UpdatePlant(postbody:any){
+    return this.http.put(this.Plant+"/UpdatePlant",postbody);
+  }
+
+  UpdateInstaWater(postbody:any){
+    return this.http.put(this.PlotConfig+"/Update_InstaWater/",postbody)
   }
 
 }

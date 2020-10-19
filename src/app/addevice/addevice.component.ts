@@ -40,6 +40,9 @@ export class AddeviceComponent implements OnInit {
   ngOnInit(): void {
     this.url = this.url.split("=", 2); 
     this.user_id = this.url[1];
+    this.httpRequestService.GetUserData().subscribe(result => {
+      //console.log(result)
+    })
   }
 
   GetResult(){

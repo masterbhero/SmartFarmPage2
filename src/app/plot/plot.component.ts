@@ -31,6 +31,7 @@ export class PlotComponent implements OnInit {
     let Header = new HttpHeaders({'Authorization': 'Bearer '+localStorage.getItem('token')});
     let options = { headers: Header };
     this.httpRequestService.GetUserData().subscribe(result => {
+      //console.log(result)
       this.detail = result;
       this.httpRequestService.GetPlotByUser(result['_id']).subscribe(result => {
         this.plot = result;

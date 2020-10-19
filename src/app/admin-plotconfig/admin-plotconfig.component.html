@@ -8,14 +8,9 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">หน้าหลัก
-                        <span class="sr-only">(current)</span>
-                    </a>
-                </li>
                 <li class="nav-item">
                     <!-- <button class="btn btn-danger"> ออกจากระบบ</button> -->
-                    <a class="nav-link" href="#">ออกจากระบบ</a>
+                    <a class="nav-link" href="/admin-login" (click)=Logout()>ออกจากระบบ</a>
                 </li>
             </ul>
         </div>
@@ -27,94 +22,128 @@
     <div class="card border-0 shadow my-5" style="background-color: #ffffff;">
         <div class="card-body p-5">
 
-            <div style="text-align:center">
-                <div class="text-dark" style="font-size: 30px;">แก้ไขข้อมูลพืช</div>
-            </div>
-            <br><br><br><br>
-
             <div class="container">
-                <!-- <div class="row justify-content-start">
-                    <div class="col-3">
-                        <label for="inputEmail">ชื่อ</label>
-                    </div>
-                    <div class="col-4">
-                        <input type="text" class="form-control" id="inputName" placeholder="ชื่อ">
-                    </div>
-                </div>
-                <br><br> -->
-                <div class="row justify-content-around">
-                    <div class="col-2">
-                        <label for="inputName">ชื่อ</label>
-                    </div>
-                    <div class="col-2">
-                        <label for="inputMoisture">ความชื้นในดิน</label>
-                    </div>
-                    <div class="col-2">
-                        <label for="inputLight">แสง</label>
-                    </div>
-                </div>
-
-                <div class="row justify-content-around">
-                    <div class="col-3">
-                        <input type="text" class="form-control" id="inputName" placeholder="ชื่อ">
-                    </div>
-                    <div class="col-3">
-                        <input type="text" class="form-control" id="inputMoisture" placeholder="15">
-                    </div>
-                    <div class="col-3">
-                        <input type="text" class="form-control" id="inputLight" placeholder="180">
-                    </div>
-                </div>
-                <br><br>
-
-                <div class="d-flex justify-content-start">
-                    &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
-                    <div class="col-2">
-                        <label for="inputPlantName">พืช</label>
-                    </div>
-                </div>
-                <div class="d-flex justify-content-start">
-                    &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
-                    <div class="col-3">
-                        <select class="form-control">
-                            <option value="">เลือกชนิดผัก</option>
-                            <option value="">ผักบุ้ง</option>
-                            <option value="">คะน้า</option>
-                            <option value="">กะหล่ำปลี</option>
-                            <option value="">กวางตุ้ง</option>
-                        </select>
-                    </div>
-                    &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
-                    <div class="col-3">
-                        <label for="input">จำนวนวันที่ใช้ปลูก</label>
-                    </div>
-                    <div class="col-2">
-                        <label for="inputDay">30</label>
-                    </div>
-                    <div class="col-2">
-                        <label for="inputDay">วัน</label>
-                    </div>
-                </div>
-
-                <br><br>
-                <div style="text-align:center">
+                <div class="card">
                     <div class="card-body">
-                        <div class="row d-flex justify-content-center">
-                            <div class="row">
-                                <div class="col-6">
-                                    <button mat-raised-button color="primary" class="btn-Delete">ยกเลิก</button>
-                                </div>
-                                <div class="col-6">
-                                    <button mat-raised-button color="primary" class="btn-login">ตกลง</button>
+            
+                        <div class="row justify-content-around">
+                            <div style="margin: auto;">
+                                <label for="inputMoisture">ชื่อ</label>
+                            </div>
+                        </div>
+            
+                        <div class="row justify-content-around">
+                            <div style="margin: auto;">
+                                <input type="text" class="form-control" id="inputName" value={{PlotConfig.name}} #name>
+                            </div>
+                        </div>
+                        <br><br>
+            
+                        <div class="row justify-content-around">
+                            <div class="col-3">
+                                <label for="blank"></label>
+                            </div>
+                            <div class="col-3">
+                                <label style="margin-left: 40%;">จำนวนวัน</label>
+                            </div>
+                            <div class="col-3">
+                                <label style="margin-left: 35%;">ความชื้นในดิน</label>
+                            </div>
+                            <div class="col-3">
+                                <label style="margin-left: 40%;">แสง</label>
+                            </div>
+                        </div>
+            
+                        <div class="row justify-content-around">    
+                            <div class="col-2">
+                                <label >ต้นกล้า</label>
+                            </div>
+                            <div class="col-2">
+                                <input type="text" (change)="DateChange1(StageOneDate.value)" class="form-control" id="StageOneinputdate" value={{PlotConfig.StageOneDate}} #StageOneDate>
+                            </div>
+                            <div class="col-2">
+                                <input type="text" (change)="OnchangeCheckNumber(StageOneDirthumid.value)" class="form-control" id="StageOneinputMoisture" value={{PlotConfig.StageOneDirthumid}} #StageOneDirthumid>
+                            </div>
+                            <div class="col-2">
+                                <input type="text" (change)="OnchangeCheckNumber(StageOnelight.value)" class="form-control" id="StageOneinputLight" value={{PlotConfig.StageOnelight}} #StageOnelight>
+                            </div>
+                        </div>
+                        <br><br>
+        
+        
+                        <div class="row justify-content-around">
+                            <div class="col-2">
+                                <label for="inputName">ต้นอ่อน</label>
+                            </div>
+                            <div class="col-2">
+                                <input type="text" (change)="DateChange2(StageTwoDate.value)" class="form-control" id="StageTwoinputdate" value={{PlotConfig.StageTwoDate}} #StageTwoDate>
+                            </div>
+                            <div class="col-2">
+                                <input type="text" (change)="OnchangeCheckNumber(StageTwoDirthumid.value)" class="form-control" id="StageTwoinputMoisture" value={{PlotConfig.StageTwoDirthumid}}  #StageTwoDirthumid>
+                            </div>
+                            <div class="col-2">
+                                <input type="text" (change)="OnchangeCheckNumber(StageTwolight.value)" class="form-control" id="StageTwoinputLight" value={{PlotConfig.StageTwolight}} #StageTwolight>
+                            </div>
+                        </div>
+                        <br><br>
+        
+                        <div class="row justify-content-around">
+                            <div class="col-2">
+                                <label for="inputName">ต้นโต</label>
+                            </div>
+                            <div class="col-2">
+                                <input type="text" (change)="DateChange3(StageThreeDate.value)" class="form-control" id="StageThreeinputdate"  value={{PlotConfig.StageThreeDate}} #StageThreeDate>
+                            </div>
+                            <div class="col-2">
+                                <input type="text" (change)="OnchangeCheckNumber(StageThreeDirthumid.value)" class="form-control" id="StageThreeinputMoisture" value={{PlotConfig.StageThreeDirthumid}}  #StageThreeDirthumid>
+                            </div>
+                            <div class="col-2">
+                                <input type="text" (change)="OnchangeCheckNumber(StageThreelight.value)" class="form-control" id="StageThreeinputLight" value={{PlotConfig.StageThreelight}} #StageThreelight>
+                            </div>
+                        </div>
+                        <br><br>
+            
+                        <div class="row justify-content-around">
+                            <div class="col-2">
+                                <label for="input">จำนวนวันที่ใช้ปลูก</label>
+                            </div>
+            
+                            <div class="col-2">
+                                <input type="text" class="form-control" id="HarvestDay" value={{harvest_day}} #HarvestDay disabled>
+                            </div>
+            
+                            <div class="col-2">
+                                <label for="inputMoisture" style="text-align: right;">คำแนะนำ</label>
+                            </div>
+            
+                            <div class="col-2">
+                                <select class="form-control" (change)="onChange(PlantsSelect.value)" #PlantsSelect>
+                                    <option *ngFor="let c of Plants" [ngValue]="c"> {{c.name}} </option>
+                                </select>
+                            </div>
+            
+                        </div>
+
+                        <br><br>
+                        <div style="text-align:center">
+                            <div class="card-body">
+                                <div class="row d-flex justify-content-center">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <button mat-raised-button color="primary" class="btn-Delete" [routerLink]="['/admin-edit-user',{id:this.user_id}]">ยกเลิก</button>
+                                        </div>
+                                        <div class="col-6">
+                                            <button mat-raised-button color="primary" class="btn-login" (click)=UpdatePlotConfigPlantSetting(name,StageOneDate,StageOneDirthumid,StageOnelight,StageTwoDate,StageTwoDirthumid,StageTwolight,StageThreeDate,StageThreeDirthumid,StageThreelight,HarvestDay)>ตกลง</button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                        <br><br>
+            
                     </div>
                 </div>
-                <br><br>
-
-                <!-- <div style="height: 700px"></div>
-            <p class="lead mb-0">You've reached the end!</p> -->
+            </div>
 
             </div>
         </div>

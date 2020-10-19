@@ -43,13 +43,13 @@
                         <label >ต้นกล้า</label>
                     </div>
                     <div class="col-2">
-                        <input type="text" class="form-control" id="StageOneinputdate" value={{PlotConfig.StageOneDate}} #StageOneDate>
+                        <input type="text" (change)="DateChange1(StageOneDate.value)" class="form-control" id="StageOneinputdate" value={{PlotConfig.StageOneDate}} #StageOneDate>
                     </div>
                     <div class="col-2">
-                        <input type="text" class="form-control" id="StageOneinputMoisture" value={{PlotConfig.StageOneDirthumid}} #StageOneDirthumid>
+                        <input type="text" (change)="OnchangeCheckNumber(StageOneDirthumid.value)" class="form-control" id="StageOneinputMoisture" value={{PlotConfig.StageOneDirthumid}} #StageOneDirthumid>
                     </div>
                     <div class="col-2">
-                        <input type="text" class="form-control" id="StageOneinputLight" value={{PlotConfig.StageOnelight}} #StageOnelight>
+                        <input type="text" (change)="OnchangeCheckNumber(StageOnelight.value)" class="form-control" id="StageOneinputLight" value={{PlotConfig.StageOnelight}} #StageOnelight>
                     </div>
                 </div>
                 <br><br>
@@ -60,13 +60,13 @@
                         <label for="inputName">ต้นอ่อน</label>
                     </div>
                     <div class="col-2">
-                        <input type="text" class="form-control" id="StageTwoinputdate" value={{PlotConfig.StageTwoDate}} #StageTwoDate>
+                        <input type="text" (change)="DateChange2(StageTwoDate.value)" class="form-control" id="StageTwoinputdate" value={{PlotConfig.StageTwoDate}} #StageTwoDate>
                     </div>
                     <div class="col-2">
-                        <input type="text" class="form-control" id="StageTwoinputMoisture" value={{PlotConfig.StageTwoDirthumid}}  #StageTwoDirthumid>
+                        <input type="text" (change)="OnchangeCheckNumber(StageTwoDirthumid.value)" class="form-control" id="StageTwoinputMoisture" value={{PlotConfig.StageTwoDirthumid}}  #StageTwoDirthumid>
                     </div>
                     <div class="col-2">
-                        <input type="text" class="form-control" id="StageTwoinputLight" value={{PlotConfig.StageTwolight}} #StageTwolight>
+                        <input type="text" (change)="OnchangeCheckNumber(StageTwolight.value)" class="form-control" id="StageTwoinputLight" value={{PlotConfig.StageTwolight}} #StageTwolight>
                     </div>
                 </div>
                 <br><br>
@@ -76,13 +76,13 @@
                         <label for="inputName">ต้นโต</label>
                     </div>
                     <div class="col-2">
-                        <input type="text" class="form-control" id="StageThreeinputdate"  value={{PlotConfig.StageThreeDate}} #StageThreeDate>
+                        <input type="text" (change)="DateChange3(StageThreeDate.value)" class="form-control" id="StageThreeinputdate"  value={{PlotConfig.StageThreeDate}} #StageThreeDate>
                     </div>
                     <div class="col-2">
-                        <input type="text" class="form-control" id="StageThreeinputMoisture" value={{PlotConfig.StageThreeDirthumid}}  #StageThreeDirthumid>
+                        <input type="text" (change)="OnchangeCheckNumber(StageThreeDirthumid.value)" class="form-control" id="StageThreeinputMoisture" value={{PlotConfig.StageThreeDirthumid}}  #StageThreeDirthumid>
                     </div>
                     <div class="col-2">
-                        <input type="text" class="form-control" id="StageThreeinputLight" value={{PlotConfig.StageThreelight}} #StageThreelight>
+                        <input type="text" (change)="OnchangeCheckNumber(StageThreelight.value)" class="form-control" id="StageThreeinputLight" value={{PlotConfig.StageThreelight}} #StageThreelight>
                     </div>
                 </div>
                 <br><br>
@@ -93,7 +93,7 @@
                     </div>
 
                     <div class="col-2">
-                        <input type="text" class="form-control" id="HarvestDay" value={{PlotConfig.harvest_day}} #HarvestDay>
+                        <input type="text" class="form-control" id="HarvestDay" value={{harvest_day}} #HarvestDay disabled>
                     </div>
 
                     <div class="col-2">
@@ -101,7 +101,7 @@
                     </div>
 
                     <div class="col-2">
-                        <select class="form-control" (change)="onChange(PlantsSelect.value)" #PlantsSelect>
+                        <select class="form-control" (change)="onChangeCheckbox(PlantsSelect.value)" #PlantsSelect>
                             <option *ngFor="let c of Plants" [ngValue]="c"> {{c.name}} </option>
                         </select>
                     </div>

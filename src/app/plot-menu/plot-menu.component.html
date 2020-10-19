@@ -5,7 +5,7 @@
             <div style="text-align:center">
                 <div style=" font-size: 30px; ">{{plot_name}}
                     <div style="float: right;">
-                        <button [routerLink]="['/plotconfig',{id: plot_id}]" mat-raised-button color="primary" class="btn-Menu">ตั้งค่าแปลง</button>
+                        <button [routerLink]="['/plotconfig',{id: plot_id}]" (click)="disconnected()" mat-raised-button color="primary" class="btn-Menu">ตั้งค่าแปลง</button>
                         <br><br>
                     </div>
                     <div style="float: right;">
@@ -13,7 +13,7 @@
                         <br><br>
                     </div>
                     <div style="float: left;">
-                        <button routerLink="/plot" mat-raised-button color="primary" class="btn-Menu">ย้อนกลับ</button>
+                        <button routerLink="/plot" (click)="disconnected()" mat-raised-button color="primary" class="btn-Menu">ย้อนกลับ</button>
                         <br><br>
                     </div>
                 </div>
@@ -50,6 +50,7 @@
                         </tr>
                     </thead>
                     <tbody>
+                        
                         <tr>
                             <td>{{ Lastet_Harvest | date:'d/M/yyyy' }}</td>
                             <td>{{ HarvestDay | date:'d/M/yyyy' }}</td>
@@ -63,20 +64,23 @@
                         <tr>
                             <th scope="col"></th>
                             <th scope="col ">สถานะ</th>
-                            <th scope="col">หยุด</th>
+                            <th scope="col">อัติโนมัติ</th>
                             <th scope="col">ทำงาน</th>
+                            <th scope="col">หยุด</th>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td>ปั้มน้ำ</td>
                             <td>{{waterpump_status}}</td>
-                            <td><button mat-raised-button color="primary" class="btn-Delete circle" (click)=TurnOffWaterpump()></button></td>
-                            <td><button mat-raised-button color="primary" class="btn-login circle" (click)=TurnOnWaterpump()></button></td>
+                            <td><button mat-raised-button color="primary" class="btn-primary circle" (click)=TurnWaterAuto()></button></td>
+                            <td><button mat-raised-button color="primary" class="btn-login circle" (click)=TurnWaterOn()></button></td>
+                            <td><button mat-raised-button color="primary" class="btn-Delete circle" (click)=TurnWaterOff()></button></td>
+                            <td><button [routerLink]="['/fertconfig',{id: plot_id}]" mat-raised-button color="primary" class="btn-Menu">ตั้งค่าปุ๋ย</button></td>
                             <td>
-
-                                <button [routerLink]="['/fertconfig',{id: plot_id}]" mat-raised-button color="primary" class="btn-Menu">ตั้งค่าปุ๋ย</button></td>
-                            <td> <button [routerLink]="['/watering',{id: plot_id,controller: controller_id}]" mat-raised-button color="primary" class="btn-Menu">ประวัติการให้น้ำ</button>
+                                <button [routerLink]="['/watering',{id: plot_id,controller: controller_id}]" mat-raised-button color="primary" class="btn-Menu">ประวัติการให้น้ำ</button>
                             </td>
                         </tr>
                     </tbody>
@@ -88,17 +92,25 @@
                     <thead>
                         <tr>
                             <th scope="col"></th>
-                            <th scope="col">สถานะ</th>
-                            <th scope="col">หยุด</th>
+                            <th scope="col ">สถานะ</th>
+                            <th scope="col">อัติโนมัติ</th>
                             <th scope="col">ทำงาน</th>
+                            <th scope="col">หยุด</th>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>แสง</td>
+                            <td style="width: 8.6%;">แสง</td>
                             <td>{{slan_status}}</td>
-                            <td><button mat-raised-button color="primary" class="btn-Delete circle" (click)=TurnOffSlan()></button></td>
-                            <td><button mat-raised-button color="primary" class="btn-login circle" (click)=TurnOnSlan()></button></td>
+                            <td><button mat-raised-button color="primary" class="btn-primary circle" (click)=TurnLightAuto()></button></td>
+                            <td><button mat-raised-button color="primary" class="btn-login circle" (click)=TurnLightOn()></button></td>
+                            <td><button mat-raised-button color="primary" class="btn-Delete circle" (click)=TurnLightOff()></button></td>
+                            <td><button mat-raised-button color="primary" class="btn-Menu" style="visibility: hidden;">ตั้งค่าปุ๋ย</button></td>
+                            <td>
+                                <button mat-raised-button color="primary" class="btn-Menu" style="visibility: hidden;">ประวัติการให้น้ำ</button>
+                            </td>
                         </tr>
                     </tbody>
                 </table>

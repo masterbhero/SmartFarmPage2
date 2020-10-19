@@ -1,0 +1,106 @@
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg static-top mb-5 shadow" style="background-color: #ffffff;">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Smart Farm</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+            aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <!-- <li class="nav-item active">
+                    <a class="nav-link" href="#">หน้าหลัก
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li> -->
+                <li class="nav-item">
+                    <!-- <button class="btn btn-danger"> ออกจากระบบ</button> -->
+                    <a class="nav-link" href="/admin-login" (click)=Logout()>ออกจากระบบ</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+
+            <div style="text-align:center">
+                <div class="text-dark" style=" font-size: 30px; ">แก้ไขข้อมูล</div>
+            </div>
+
+            <br><br>
+
+            <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+                <div class="btn-group" role="group" aria-label="First group">
+                    <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                        <div class="btn-group mr-2" role="group" aria-label="Third group">
+                            <button mat-raised-button routerLink="/userdb" color="primary" class="btn-Menu">ย้อนกลับ</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="btn-group" role="group" aria-label="First group">
+                    <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                        <div class="btn-group mr-2" role="group" aria-label="Third group">
+                            <button mat-raised-button  color="primary" class="btn-Menu">Add +</button>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+            <!-- <br><br>
+
+            <div class="form-group row">
+                <label for="inputName" class="col-sm-2 col-form-label ">ชื่อ</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="inputName" placeholder="ชื่อ" value="{{UserData.firstname}}" #firstname>
+                </div>
+            </div><br>
+
+            <div class="form-group row">
+                <label for="inputlastName" class="col-sm-2 col-form-label ">สกุล</label >
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="inputLastname" placeholder="สกุล" value="{{UserData.lastname}}" #lastname> 
+                </div>
+            </div><br>
+
+            <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+                <div class="btn-group" role="group" aria-label="First group">
+                    <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                        <div class="btn-group mr-2" role="group" aria-label="Third group">
+                            <button mat-raised-button color="primary" class="btn-Menu">แก้ไขข้อมูล</button>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+
+            <br><br>
+
+            <div class="table-responsive ">
+                <table id="Plot" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
+                    <thead>
+                        <tr>
+                            <td style="display:none;"></td>
+                            <td style="display:none;"></td>
+                            <td></td>
+                            <td>name</td>
+                            <td></td>
+                            <td></td>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let Plot of PlotData;let i = index">
+                            <td style="display:none;"><input type="text" value="{{Plot._id}}" #id></td>
+                            <td style="display:none;"><input type="text" value="{{Plot.User_id}}" #user_id></td>
+                            <td>{{i+1}}</td>
+                            <td>{{Plot.name}}</td>
+                            <td style="text-align: center;"><button mat-raised-button color="primary" class="btn-Edit" (click)="EditPlotConfig(id,user_id)">ตั้งค่าแปลงผัก</button></td>
+                            <td style="text-align: center;"><button mat-raised-button color="primary" class="btn-Edit" (click)="EditFertConfig(id,user_id)">ตั้งค่าปุ๋ย</button></td>
+                        </tr>
+                    </tbody>
+
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>

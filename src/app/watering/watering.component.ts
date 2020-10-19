@@ -24,11 +24,26 @@ export class WateringComponent implements OnInit {
   optionsChart: any;
 
   constructor(private httpRequestService:HttpRequestService) { }
-
+  //1601398800000
+  //1601485200000
   ngOnInit(): void {
-    this.SetVar();
-    
-
+    this.httpRequestService.GetUserData().subscribe(result => {
+      this.SetVar();
+      let NewDate2 = new Date().getTime();
+      //console.log(new Date())
+      //console.log(new Date().toISOString())
+      //console.log(NewDate2.toString())
+      let NewDate1 = NewDate2 - 1*60*60*1000;
+      //console.log(NewDate2.toString())
+      this.httpRequestService.GetSensorDataByIDAndTimeRange(this.controller_id,NewDate1.toString(),NewDate2.toString()).subscribe((result) =>{
+        //console.log(this.controller_id)
+        //console.log(NewDate1.toString())
+        //console.log(NewDate2.toString())
+        //console.log(result)
+        this.SetArray(result);
+        this.SetChart();
+      })
+    })
   }
 
   CallGraph(){
@@ -41,6 +56,9 @@ export class WateringComponent implements OnInit {
     //console.log(timestamp1)
     //console.log(timestamp2)
     this.httpRequestService.GetSensorDataByIDAndTimeRange(this.controller_id,this.Date1.toString(),this.Date2.toString()).subscribe((result) =>{
+      //console.log(this.controller_id)
+      //console.log(this.Date1.toString())
+      //console.log(this.Date2.toString())
       //console.log(result)
       this.SetArray(result);
       this.SetChart();
@@ -164,9 +182,11 @@ export class WateringComponent implements OnInit {
     for (var i = 0; i < Object.keys(this.testdata).length; i++) {
       var counter = this.testdata[i];
       //console.log(counter);
-      this.testvalue.push(counter.dirthumid); 
+      var dirthumid = parseInt(counter.dirthumid)/10;
+      this.testvalue.push(dirthumid); 
+      //this.testvalue.push((dirthumid+0)*(0-100)/(1023-0)+100); 
       //this.testvalue.push((parseInt(counter.dirthumid)+0)*(0-100)/(1023-0)+100); 	
-      this.watering.push(parseInt(counter.waterpump)*100);
+      this.watering.push(parseInt(counter.waterpump)*50);
       this.testDate.push(this.convert(parseInt(counter.CreatedDate)));     
       //console.log(counter.value);
       //console.log(this.convert(counter.CreatedDate));

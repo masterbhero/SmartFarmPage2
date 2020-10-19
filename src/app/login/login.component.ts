@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
   postbody: any;
   obj: any;
   Header: any;
+  user_id: any;
 
   constructor(private http: HttpClient,private router: Router,private httpRequestService: HttpRequestService) { }
 
@@ -36,13 +37,28 @@ export class LoginComponent implements OnInit {
         if(status == "\"success\""){
           const str = JSON.stringify(result['token']);
           localStorage.setItem('token',str);
-          this.router.navigate(['/plot']);
+          this.user_id = result['user'];
+          //console.log(result['user'])
+          this.httpRequestService.GetPublicIP().subscribe((result) => {
+            //console.log(result)
+            this.postbody = {
+              user_id : this.user_id,
+              username : username.value,
+              public_ip : result['ip']
+            }
+            //console.log(this.postbody)
+            this.httpRequestService.AddLoginLog(this.postbody).subscribe((result) => {
+              this.router.navigate(['/plot']);
+            })
+          })
         }
         else if(status == "\"wrong password\""){
-          alert("wrong password");
+          //alert("wrong password");
+          alert("wrong username or password");
         }
         else if(status == "\"User does not exist\""){
-          alert("User does not exist");
+          //alert("User does not exist");
+          alert("wrong username or password");
         }
       }) 
     }else{

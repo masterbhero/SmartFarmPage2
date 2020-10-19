@@ -1,0 +1,105 @@
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg static-top mb-5 shadow" style="background-color: #ffffff;">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Smart Farm</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+            aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <!-- <li class="nav-item active">
+                    <a class="nav-link" href="#">หน้าหลัก
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li> -->
+                <li class="nav-item">
+                    <!-- <button class="btn btn-danger"> ออกจากระบบ</button> -->
+                    <a class="nav-link" href="/admin-login" (click)=Logout()>ออกจากระบบ</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Page Content -->
+<div class="container">
+    <div class="card border-0 shadow my-5" style="background-color: #ffffff; ">
+        <div class="card-body p-5">
+
+            <div style="text-align:center">
+                <div class="text-dark" style=" font-size: 30px; ">ข้อมูล User</div>
+            </div>
+          
+            <div class="btn-toolbar justify-content-between" role="toolbar"
+                    aria-label="Toolbar with button groups">
+                    <div class="btn-group" role="group" aria-label="First group">
+                        <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                            <!-- <div class="btn-group mr-2" role="group" aria-label="First group">
+                                <button mat-raised-button color="primary" class="btn-Menu">Add +</button>
+                            </div> -->
+                            <div class="btn-group mr-2" role="group" aria-label="Third group">
+                                <button mat-raised-button routerLink="/userdb" color="primary" class="btn-Menu">User</button>
+                            </div>
+                            <div class="btn-group mr-2" role="group" aria-label="Third group">
+                                <button mat-raised-button routerLink="/plantdb" color="primary" class="btn-Menu">Plant</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                                <div class="btn-group mr-2" role="group" aria-label="First group">
+                                    <button mat-raised-button color="primary" class="btn-Menu" routerLink="/inactive-userdb">Inactive User</button>
+                                </div>
+                                <div class="btn-group mr-2" role="group" aria-label="First group">
+                                    <button mat-raised-button color="primary" class="btn-Menu" routerLink="/inactive-plantdb">Inactive Plant</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+           
+            <br><br><br><br>
+        
+                <div class="table-responsive ">
+                    <table id="User" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
+                        <thead>
+                            <tr>
+                                <td style="display:none;"></td>
+                                <td style="display:none;"></td>
+                                <td>No</td>
+                                <td>Firstname</td>
+                                <td>Lastname</td>
+                                <td>Email</td>
+                                <td>AllowEdit</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let User of UserData;let i = index">
+                                <td style="display:none;"><input type="text" value="{{User._id}}" #id></td>
+                                <td style="display:none;"><input type="text" value="{{User.AllowEdit}}" #AllowEdit></td>
+                                <td>{{i+1}}</td>
+                                <td>{{User.firstname}}</td>
+                                <td>{{User.lastname}}</td>
+                                <td>{{User.email}}</td>
+                                <td>{{User.AllowEdit}}</td>
+                                <td><button mat-raised-button color="primary" class="btn-Edit" (click)="EditUser(id,AllowEdit)">แก้ไข</button></td>
+                                <td><button mat-raised-button color="primary" class="btn-Delete" (click)="SetToInactive(id)">ลบ</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+          
+            <br><br>
+
+            <!-- <div style="height: 700px"></div>
+            <p class="lead mb-0">You've reached the end!</p> -->
+
+        </div>
+    </div>
+</div>

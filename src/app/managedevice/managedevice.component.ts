@@ -19,8 +19,10 @@ export class ManagedeviceComponent implements OnInit {
     this.url = window.location.href;
     this.url = this.url.split("=", 2); 
     this.user_id = this.url[1];
-    this.httpRequestService.GetPlotByUser(this.user_id).subscribe(result => {
-      this.plot = result;
+    this.httpRequestService.GetUserData().subscribe(result => {
+      this.httpRequestService.GetPlotByUser(this.user_id).subscribe(result => {
+        this.plot = result;
+      })
     })
   }
   
@@ -56,7 +58,7 @@ export class DialogOverviewExampleDialog {
 
   ngOnInit() {
     // will log the entire data object
-    console.log(this.data)
+    //console.log(this.data)
   }
   
   onNoClick(): void {
@@ -67,9 +69,9 @@ export class DialogOverviewExampleDialog {
     this.postbody = {
       Plot_id:this.data.plot_id
     }
-    console.log(this.postbody)
+    //console.log(this.postbody)
     this.httpRequestService.RemoveFromUser(this.postbody).subscribe(result => {      
-      console.log(result)
+      //console.log(result)
       window.location.reload();
       this.dialogRef.close();
     })

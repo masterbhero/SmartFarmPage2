@@ -20,10 +20,10 @@
 
             <div class="row justify-content-around">    
                 <div class="col-2">
-                    <label>{{ PlotConfig.fertilizercycle_last | date:'d/M/yyyy' }}</label>
+                    <label>{{ fertilizercycle_last | date:'d/M/yyyy' }}</label>
                 </div>
                 <div class="col-2">
-                    <label>{{ PlotConfig.fertilizercycle_next | date:'d/M/yyyy' }}</label>
+                    <label>{{ fertilizercycle_next | date:'d/M/yyyy' }}</label>
                 </div>
             </div>  
             <br><br>
@@ -41,6 +41,19 @@
             </div>
             <br><br>
 
+            <div class="row justify-content-around">    
+                <div class="col-4" style="text-align: right;">
+                    <label>ให้ปุ๋ยจำนวน</label>
+                </div>
+                <div class="col-4">
+                    <input type="text" class="form-control" id="fert_amount" value={{PlotConfig.fert_amount}} #fert_amount>
+                </div>
+                <div class="col-4">
+                    <label>มิลลิลิตร</label>
+                </div>                                         
+            </div>
+            <br><br>
+
             <div style="text-align:center">
                 <div class="card-body">
                     <div class="row d-flex justify-content-center">
@@ -51,7 +64,7 @@
                             </div>
                             <div class="col-6">
                                 <button  mat-raised-button color="primary" 
-                                    class="btn-login" (click)="UpdateFertConfig(fertilizercycle)">ตกลง</button>
+                                    class="btn-login" (click)="UpdateFertConfig(fertilizercycle,fert_amount)">ตกลง</button>
                             </div>
                         </div>
                     </div>
@@ -62,6 +75,26 @@
             <!-- <div style="height: 700px"></div>
             <p class="lead mb-0">You've reached the end!</p> -->
 
-        </div>
+            <div class="row justify-content-around">
+                <div class="table-responsive ">
+                    <table id="fert" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
+                        <thead>
+                            <tr>
+                                <td>จำนวนปุ๋ยที่ให้</td>
+                                <td>เวลาที่ให้</td>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let history of ferthistory;let i = index">
+                                <td>{{history.fert_amount}}</td>
+                                <td>{{ history.CreatedDate | date : 'dd-MM-yyyy HH:mm'}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
     </div>
+
+
+    </div>
+    
 </div>

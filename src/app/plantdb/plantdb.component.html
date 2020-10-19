@@ -1,7 +1,7 @@
 
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg static-top mb-5 shadow" style="background-color: #ffffff;">
-    <div class="container">
+    <div class="container-fluid">
         <a class="navbar-brand" href="#">Smart Farm</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
             aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -16,7 +16,7 @@
                 </li> -->
                 <li class="nav-item">
                     <!-- <button class="btn btn-danger"> ออกจากระบบ</button> -->
-                    <a class="nav-link" href="#">ออกจากระบบ</a>
+                    <a class="nav-link" href="/admin-login" (click)=Logout()>ออกจากระบบ</a>
                 </li>
             </ul>
         </div>
@@ -26,24 +26,24 @@
 <!-- Page Content -->
 <div class="container">
     <div class="card border-0 shadow my-5" style="background-color: #ffffff;">
-        <div class="card-body p-5">
+        <div class="card-body p-5" style="box-sizing: border-box; ">
 
             <div style="text-align:center">
-                <div class="text-dark" style=" font-size: 30px; ">ข้อมูลพืช</div>
+                <div class="text-dark" style=" font-size: 30px; ">ข้อมูล Plant</div>
             </div>
           
-                <div class="btn-toolbar justify-content-between" role="toolbar"
+            <div class="btn-toolbar justify-content-between" role="toolbar"
                     aria-label="Toolbar with button groups">
                     <div class="btn-group" role="group" aria-label="First group">
                         <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-                            <div class="btn-group mr-2" role="group" aria-label="First group">
+                            <!-- <div class="btn-group mr-2" role="group" aria-label="First group">
                                 <button mat-raised-button color="primary" class="btn-Menu">Add +</button>
+                            </div> -->
+                            <div class="btn-group mr-2" role="group" aria-label="Third group">
+                                <button mat-raised-button routerLink="/userdb" color="primary" class="btn-Menu">User</button>
                             </div>
-                            <div class="btn-group mr-2" role="group" aria-label="Second group">
-                                <button mat-raised-button color="primary" class="btn-Menu">User</button>
-                            </div>
-                            <div class="btn-group" role="group" aria-label="Third group">
-                                <button mat-raised-button color="primary" class="btn-Menu">Controller</button>
+                            <div class="btn-group mr-2" role="group" aria-label="Third group">
+                                <button mat-raised-button routerLink="/plantdb" color="primary" class="btn-Menu">Plant</button>
                             </div>
                         </div>
                     </div>
@@ -51,7 +51,10 @@
                         <div class="input-group-prepend">
                             <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
                                 <div class="btn-group mr-2" role="group" aria-label="First group">
-                                    <button mat-raised-button color="primary" class="btn-Menu">Backup Plant</button>
+                                    <button mat-raised-button color="primary" class="btn-Menu" routerLink="/inactive-userdb">Inactive User</button>
+                                </div>
+                                <div class="btn-group mr-2" role="group" aria-label="First group">
+                                    <button mat-raised-button color="primary" class="btn-Menu" routerLink="/inactive-plantdb">Inactive Plant</button>
                                 </div>
                             </div>
                         </div>
@@ -59,40 +62,58 @@
                     </div>
                 </div>
            
-            <br><br><br><br>
+            <br><br>
+
+                <div class="btn-group" role="group" aria-label="First group">
+                    <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                        <!-- <div class="btn-group mr-2" role="group" aria-label="First group">
+                            <button mat-raised-button color="primary" class="btn-Menu">Add +</button>
+                        </div> -->
+                        <div class="btn-group mr-2" role="group" aria-label="Third group">
+                            <button mat-raised-button color="primary" class="btn-Menu" (click)="AddPlant()">Add+</button>
+                        </div>
+                    </div>
+                </div>
+                
+            <br><br><br>
         
                 <div class="table-responsive ">
-                    <table id="example" class="table  table-bordered" style="width:100%">
+                    <table id="Plant" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
                         <thead>
                             <tr>
-                                <th>ชื่อ</th>
-                                <th>อุณหภูมิ</th>
-                                <th>ความชื้น</th>
-                                <th>แสง</th>
-                                <th>เวลาเก็บ </th>
-                                <th></th>
-                                <th></th>
-                             
-                            </tr>
+                                <td style="display:none;"></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>name</td>
+                                <td>StageOneDate</td>
+                                <td>StageTwoDate</td>
+                                <td>StageThreeDate</td>
+                                <td>StageOneDirthumid</td>
+                                <td>StageOnelight</td>
+                                <td>StageTwoDirthumid</td>
+                                <td>StageTwolight</td>
+                                <td>StageThreeDirthumid</td>
+                                <td>StageThreelight</td>
+                                <td>harvest_day</td>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>ผักกาด</td>
-                                <td>30</td>
-                                <td>15</td>
-                                <td>180</td>
-                                <td>เวลาเก็บ</td>
-                                <td><button mat-raised-button color="primary" class="btn-Edit">แก้ไข</button></td>
-                                <td><button mat-raised-button color="primary" class="btn-Delete">ลบ</button></td>
-                            </tr>
-                            <tr>
-                                <td>ผักกาด</td>
-                                <td>30</td>
-                                <td>15</td>
-                                <td>180</td>
-                                <td>เวลาเก็บ</td>
-                                <td><button mat-raised-button color="primary" class="btn-Edit">แก้ไข</button></td>
-                                <td><button mat-raised-button color="primary" class="btn-Delete">ลบ</button></td>
+                            <tr *ngFor="let Plant of PlantData;let i = index">
+                                <td style="display:none;"><input type="text" value="{{Plant._id}}" #id></td>
+                                <td><button mat-raised-button color="primary" class="btn-Edit" (click)="EditPlant(id)">แก้ไข</button></td>
+                                <td><button mat-raised-button color="primary" class="btn-Delete" (click)="SetToInactive(id)">ลบ</button></td>
+                                <td>{{i+1}}</td>
+                                <td>{{Plant.name}}</td>
+                                <td>{{Plant.StageOneDate}}</td>
+                                <td>{{Plant.StageTwoDate}}</td>
+                                <td>{{Plant.StageThreeDate}}</td>
+                                <td>{{Plant.StageOneDirthumid}}</td>
+                                <td>{{Plant.StageOnelight}}</td>
+                                <td>{{Plant.StageTwoDirthumid}}</td>
+                                <td>{{Plant.StageTwolight}}</td>
+                                <td>{{Plant.StageThreeDirthumid}}</td>
+                                <td>{{Plant.StageThreelight}}</td>
+                                <td>{{Plant.harvest_day}}</td>
                             </tr>
                         </tbody>
                     </table>

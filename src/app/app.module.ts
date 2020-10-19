@@ -12,6 +12,7 @@ import {MatButtonModule} from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatDialogModule} from '@angular/material/dialog';
 import { ChartModule } from 'angular2-chartjs';
+import { DataTablesModule } from 'angular-datatables';
 
 //page
 import { AppComponent } from './app.component';
@@ -41,6 +42,14 @@ import { AdminWateringdisplayComponent } from './admin-wateringdisplay/admin-wat
 import { MoistureMonitorComponent } from './moisture-monitor/moisture-monitor.component';
 import { PlotmenuStartComponent } from './plotmenu-start/plotmenu-start.component';
 import { AddControllerComponent } from './add-controller/add-controller.component';
+import { AdminLoginComponent } from './admin-login/admin-login.component';
+import { UserdbComponent } from './userdb/userdb.component';
+import { InactiveUserComponent } from './inactive-user/inactive-user.component';
+import { InactivePlantsComponent } from './inactive-plants/inactive-plants.component';
+import { AdminEditUserComponent } from './admin-edit-user/admin-edit-user.component';
+import { PlantConfigComponent } from './plant-config/plant-config.component';
+import { AddPlantComponent } from './add-plant/add-plant.component';
+import { EditPlantComponent } from './edit-plant/edit-plant.component';
 
 const Routes: Routes = [
   { path: '',  redirectTo:'/login', pathMatch:'full' },
@@ -53,16 +62,24 @@ const Routes: Routes = [
   { path: 'register',  component: RegisterComponent },
   { path: 'fertconfig',  component: FertconfigComponent },
   { path: 'watering',  component: WateringComponent },
-  { path: 'wateringdisplay',  component: WateringdisplayComponent },
+  //{ path: 'wateringdisplay',  component: WateringdisplayComponent },
   { path: 'plotconfig',  component: PlotconfigComponent },
-  { path: 'abc',  component: PlotconfigComponent },
-  { path: 'plotmenustart',  component: PlotmenuStartComponent },
+  //{ path: 'abc',  component: PlotconfigComponent },
+  //{ path: 'plotmenustart',  component: PlotmenuStartComponent },
  
   /////admin/////
 
   { path: 'admin',  component: AdminComponent },
+  { path: 'admin-login',  component: AdminLoginComponent },
   { path: 'mcdata',  component: McDataComponent },
   { path: 'plantdb',  component: PlantdbComponent },
+  { path: 'inactive-plantdb',  component: InactivePlantsComponent },
+  { path: 'userdb',  component: UserdbComponent },
+  { path: 'inactive-userdb',  component: InactiveUserComponent },
+  { path: 'admin-edit-user',  component: AdminEditUserComponent },
+  { path: 'plant-config',  component: PlantConfigComponent },
+  { path: 'plant-edit',  component: EditPlantComponent },
+  { path: 'plant-add',  component: AddPlantComponent },
   { path: 'adminPlot',  component: AdminPlotComponent },
   { path: 'adminPlotmenu',  component: AdminPlotmenuComponent },
   { path: 'adminManagedevice',  component: AdminManagedeviceComponent },
@@ -104,7 +121,15 @@ const Routes: Routes = [
     AdminWateringdisplayComponent,
     MoistureMonitorComponent,
     PlotmenuStartComponent,
-    AddControllerComponent
+    AddControllerComponent,
+    AdminLoginComponent,
+    UserdbComponent,
+    InactiveUserComponent,
+    InactivePlantsComponent,
+    AdminEditUserComponent,
+    PlantConfigComponent,
+    AddPlantComponent,
+    EditPlantComponent
 
   ],
   imports: [
@@ -118,8 +143,8 @@ const Routes: Routes = [
     ReactiveFormsModule,
     FormsModule,
     MatDialogModule,
-    ChartModule 
-
+    ChartModule,
+    DataTablesModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

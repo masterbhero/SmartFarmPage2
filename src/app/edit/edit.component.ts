@@ -26,10 +26,10 @@ export class EditComponent implements OnInit {
       firstname:"",
       lastname:""
     }
-    this.httpRequestService.GetUserByID(this.user_id).subscribe((result) => {
-      // console.log(result[0]);
-      this.Udata = result[0];
-      this.AllowEdit = Boolean(JSON.parse(result[0]["AllowEdit"]));
+    this.httpRequestService.GetUserData().subscribe((result) => {
+      //console.log(result);
+      this.Udata = result;
+      this.AllowEdit = Boolean(JSON.parse(result["AllowEdit"]));
       //console.log(this.AllowEdit)
     })
   }
